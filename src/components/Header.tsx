@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { siteConfig } from "@/config/site";
+import { siteConfig, BASE_PATH } from "@/config/site";
 import { trackCall, trackLine } from "@/lib/analytics";
 
 const navLinks = [
@@ -30,7 +30,7 @@ export default function Header() {
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
         <Link href="/" className="block">
           <Image
-            src="/images/logo.png"
+            src={`${BASE_PATH}/images/logo.png`}
             alt={siteConfig.brand}
             width={120}
             height={40}

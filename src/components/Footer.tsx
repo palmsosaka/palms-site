@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { siteConfig } from "@/config/site";
+import { siteConfig, BASE_PATH } from "@/config/site";
 
 const footerLinks = [
   {
@@ -43,7 +43,7 @@ export default function Footer() {
           <div>
             <Link href="/" className="mb-3 inline-block">
               <Image
-                src="/images/logo.png"
+                src={`${BASE_PATH}/images/logo.png`}
                 alt={siteConfig.brand}
                 width={120}
                 height={40}

@@ -1,4 +1,4 @@
-import { siteConfig } from "@/config/site";
+import { siteConfig, BASE_PATH } from "@/config/site";
 import FAQBlock from "@/components/FAQBlock";
 import ProblemSection from "@/components/ProblemSection";
 import ScrollAnimator from "@/components/ScrollAnimator";
@@ -121,7 +121,7 @@ export default function HomePage() {
       <section className="bg-white py-0">
         <div className="animate-fade mx-auto max-w-4xl">
           <Image
-            src="/images/onestop.png"
+            src={`${BASE_PATH}/images/onestop.png`}
             alt="事故から復旧まで、安心のワンストップサービス"
             width={1200}
             height={500}

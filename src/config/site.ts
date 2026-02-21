@@ -1,3 +1,6 @@
+/** Must match next.config.ts basePath (empty string for custom domain) */
+export const BASE_PATH = "/palms-site";
+
 export const siteConfig = {
   companyName: "PALMS",
   brand: "PALMS",
