@@ -1,0 +1,466 @@
+import { siteConfig } from "@/config/site";
+import FAQBlock from "@/components/FAQBlock";
+import ProblemSection from "@/components/ProblemSection";
+import ScrollAnimator from "@/components/ScrollAnimator";
+import Image from "next/image";
+
+const topFAQ = [
+  {
+    question: "事故現場で本当にレンタカーを借りられますか？",
+    answer:
+      "状況と在庫次第で可能です。安全確保・道路状況・車種などを確認し、可能な限り現場での差し替えを行います。",
+  },
+  {
+    question: "レッカー車に同乗できないと言われました",
+    answer:
+      'ロードサービスの運用上、同乗できないケースは珍しくありません。PALMSはその"移動の空白"を減らすため、代車を現場へお持ちする体制を整えています。※状況により、同乗の可否や対応は変わることがあります。',
+  },
+  {
+    question: "夜間・休日でも対応できますか？",
+    answer:
+      "24時間受付（可能な限り対応）しています。混雑状況や安全上の理由で到着時間が前後する場合があります。",
+  },
+  {
+    question: "料金はいくらですか？",
+    answer:
+      "搬送距離・車両状態・時間帯・代車日数などで変動します。まずは状況を伺い、概算をお伝えします。",
+  },
+  {
+    question: "保険が使えるか分かりません",
+    answer:
+      "加入内容によって異なりますが、状況整理からお手伝いします。保険会社への連絡タイミングや必要情報も、わかりやすくご案内します。",
+  },
+  {
+    question: "どのエリアまで来てもらえますか？",
+    answer: `${siteConfig.areaDetail}を中心に対応しています。距離や道路状況により、到着時間が前後する場合があります。`,
+  },
+  {
+    question: "借りる時に必要なものは？",
+    answer:
+      "原則として、運転免許証が必要です。その他、年齢条件・決済方法など詳細はお問い合わせください。",
+  },
+];
+
+export default function HomePage() {
+  return (
+    <>
+      {/* Global scroll animator (single observer, CSS-driven) */}
+      <ScrollAnimator />
+
+      {/* ===== HERO ===== */}
+      <section className="relative overflow-hidden bg-[#1a1a1a] text-white">
+        <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-black/40" />
+        <div className="relative mx-auto max-w-5xl px-4 py-16 md:py-24">
+          <div className="text-center">
+            {/* Badge */}
+            <div className="hero-animate-1 mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-medium tracking-wider backdrop-blur-sm">
+              <span className="inline-block h-2 w-2 rounded-full bg-green-400 animate-pulse" />
+              24時間受付・可能な限り対応
+            </div>
+
+            <h1 className="hero-animate-2 mb-6 text-3xl font-bold leading-tight tracking-tight md:text-5xl md:leading-tight">
+              事故現場で
+              <span className="text-primary">&quot;レンタカー<span className="text-white/70 text-[0.85em]">or</span>代車&quot;</span>
+              お渡し
+              <br />
+              お車とレンタカーを
+              <br className="md:hidden" />
+              その場で差し替え
+            </h1>
+
+            <p className="hero-animate-3 mx-auto mb-8 max-w-2xl text-base leading-relaxed text-gray-300 md:text-lg">
+              事故・故障の現場に、レンタカーを積んで駆けつけ
+              <br className="hidden md:block" />
+              お車はレッカーでお引き取り、あなたは
+              <strong className="text-white">その場で代車に乗り換えて出発</strong>
+              できます
+            </p>
+
+            {/* 3 Points */}
+            <div className="hero-animate-3 mx-auto mb-10 flex max-w-xl flex-col gap-3 sm:flex-row sm:justify-center">
+              {[
+                { line1: "事故現場で車両入替", line2: "（レッカー＋代車）" },
+                { line1: "保険案件も", line2: "ワンストップ対応" },
+                { line1: "受付：24時間", line2: "（可能な限り対応）" },
+              ].map((item) => (
+                <div
+                  key={item.line1}
+                  className="flex items-center gap-2 rounded-lg bg-white/10 px-4 py-2.5 text-sm backdrop-blur-sm"
+                >
+                  <span className="text-primary">✓</span>
+                  <span>{item.line1}<br />{item.line2}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* CTA */}
+            <div className="hero-animate-4 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+              <a
+                href={`tel:${siteConfig.phoneRaw}`}
+                className="w-full rounded-full bg-emergency px-10 py-5 text-lg font-bold shadow-lg shadow-red-600/30 transition-all duration-300 hover:bg-emergency-dark hover:shadow-red-600/50 hover:scale-105 sm:w-auto"
+              >
+                📞 今すぐ電話する
+              </a>
+              <a
+                href={siteConfig.lineUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full rounded-full bg-accent px-10 py-5 text-lg font-bold shadow-lg shadow-green-700/30 transition-all duration-300 hover:opacity-90 hover:scale-105 sm:w-auto"
+              >
+                💬 LINEで依頼する
+              </a>
+            </div>
+            <p className="hero-animate-5 mt-4 text-xs text-gray-400">
+              LINEなら位置情報・写真の送信もOK
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== ワンストップ画像 ===== */}
+      <section className="bg-white py-0">
+        <div className="animate-fade mx-auto max-w-4xl">
+          <Image
+            src="/images/onestop.png"
+            alt="事故から復旧まで、安心のワンストップサービス"
+            width={1200}
+            height={500}
+            className="h-auto w-full"
+            priority
+          />
+        </div>
+      </section>
+
+      {/* ===== 課題提起 ===== */}
+      <ProblemSection />
+
+      {/* ===== 解決策 ===== */}
+      <section className="py-16 md:py-20">
+        <div className="mx-auto max-w-3xl px-4">
+          <div className="animate-on-scroll mb-4 text-center text-sm font-bold tracking-widest text-accent">
+            SOLUTION
+          </div>
+          <h2 className="animate-on-scroll mb-6 text-center text-2xl font-bold md:text-3xl">
+            PALMSの解決策：
+            <br className="md:hidden" />
+            現場で&quot;代車に乗り換え&quot;
+          </h2>
+          <p className="animate-on-scroll mx-auto mb-12 max-w-xl text-center text-sm leading-relaxed text-muted md:text-base">
+            PALMSは、事故・故障の現場へレンタカーを積載した状態で出向き、
+            お車をレッカーで引き上げると同時に、その場でレンタカーへ車両差し替えが可能です。
+          </p>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {[
+              {
+                title: "その場で移動手段を確保",
+                desc: "予定を崩しにくい。事故直後でもすぐに移動できます",
+                icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="h-8 w-8 text-accent">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0H21M3.375 14.25h3.86a2.25 2.25 0 0 0 1.519-.585l1.586-1.414a2.25 2.25 0 0 1 1.519-.585h2.391a2.25 2.25 0 0 1 1.451.527l1.722 1.472h3.457" />
+                  </svg>
+                ),
+              },
+              {
+                title: "複数移動が減る",
+                desc: "タクシー・電車・レンタカー店舗…の手間をカット",
+                icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="h-8 w-8 text-accent">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 4.5h14.25M3 9h9.75M3 13.5h5.25m5.25-.75L17.25 9m0 0L21 12.75M17.25 9v12" />
+                  </svg>
+                ),
+              },
+              {
+                title: "判断コストが下がる",
+                desc: "保険対応・修理手配もまとめて相談。考えることを最小化",
+                icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="h-8 w-8 text-accent">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.745 3.745 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
+                  </svg>
+                ),
+              },
+            ].map((item, i) => (
+              <div
+                key={item.title}
+                className={`animate-scale-up stagger-${i + 1} hover-lift rounded-2xl border border-gray-100 bg-white p-6 shadow-sm`}
+              >
+                <div className="mb-3">{item.icon}</div>
+                <h3 className="mb-2 font-bold">{item.title}</h3>
+                <p className="text-sm leading-relaxed text-muted">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== こんな方に ===== */}
+      <section className="bg-primary-light py-16 md:py-20">
+        <div className="mx-auto max-w-3xl px-4">
+          <h2 className="animate-on-scroll mb-10 text-center text-2xl font-bold md:text-3xl">
+            こんな方におすすめ
+          </h2>
+          <div className="grid gap-4 md:grid-cols-2">
+            {[
+              "仕事・子どもの送迎など、すぐ移動が必要な方",
+              "事故直後の手配をひとつにまとめたい方",
+              "修理・保険・代車を丸投げで進めたい方",
+              "夜間・休日の事故で、店舗に行くのが難しい方",
+            ].map((text, i) => (
+              <div
+                key={text}
+                className={`animate-scale-up stagger-${i + 1} hover-lift flex items-center gap-3 rounded-xl bg-white p-5 shadow-sm`}
+              >
+                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent text-sm text-white">
+                  ✓
+                </span>
+                <p className="text-sm font-medium md:text-base">{text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== ご利用の流れ ===== */}
+      <section className="py-16 md:py-20">
+        <div className="mx-auto max-w-3xl px-4">
+          <div className="animate-on-scroll mb-4 text-center text-sm font-bold tracking-widest text-accent">
+            FLOW
+          </div>
+          <h2 className="animate-on-scroll mb-12 text-center text-2xl font-bold md:text-3xl">
+            ご利用の流れ（最短3ステップ）
+          </h2>
+
+          <div className="space-y-8">
+            {[
+              {
+                num: "01",
+                title: "まずはご連絡（電話 / LINE）",
+                desc: "事故状況・場所・車種・保険の有無などを簡単に確認します。安全確保を最優先に、状況に応じた最短手配を行います。",
+                sub: "📞 電話 / 💬 LINE（写真を送れるのでスムーズです）",
+              },
+              {
+                num: "02",
+                title: "現場へ出動（レッカー＋代車積載）",
+                desc: "現場状況により、安全な場所へ移動してから対応する場合があります。（道路状況・警察対応・二次被害防止など）",
+                sub: "",
+              },
+              {
+                num: "03",
+                title: "車両差し替え → その場で出発",
+                desc: "お車はレッカーで搬送、あなたはレンタカー（代車）へ乗り換え。必要に応じて、修理・保険・日程などもその場で整理します。",
+                sub: "",
+              },
+            ].map((item, i) => (
+              <div key={item.num} className={`animate-on-scroll stagger-${i + 1} flex gap-5`}>
+                <div className="flex flex-col items-center">
+                  <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-accent text-lg font-bold text-white">
+                    {item.num}
+                  </span>
+                  {i < 2 && <div className="mt-2 h-full w-px bg-gray-200" />}
+                </div>
+                <div className="pb-8">
+                  <h3 className="mb-2 text-lg font-bold">{item.title}</h3>
+                  <p className="text-sm leading-relaxed text-muted">
+                    {item.desc}
+                  </p>
+                  {item.sub && (
+                    <p className="mt-2 text-xs text-accent">{item.sub}</p>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== 選ばれる理由 ===== */}
+      <section className="bg-[#1a1a1a] py-16 text-white md:py-20">
+        <div className="mx-auto max-w-4xl px-4">
+          <div className="animate-on-scroll mb-4 text-center text-sm font-bold tracking-widest text-primary">
+            WHY PALMS
+          </div>
+          <h2 className="animate-on-scroll mb-12 text-center text-2xl font-bold md:text-3xl">
+            PALMSが選ばれる理由
+          </h2>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            {[
+              {
+                num: "01",
+                title: '事故対応を"分断"させない',
+                desc: "レッカー・代車・修理・保険対応が分かれると、手間もミスも増えます。PALMSは一連の流れをまとめて進められる体制を整えています。",
+              },
+              {
+                num: "02",
+                title: "現場で代車を渡せるから、行動が止まらない",
+                desc: '事故直後の「移動の空白」をなくし、その日の予定を守りやすくします。',
+              },
+              {
+                num: "03",
+                title: "相談窓口がひとつ",
+                desc: "「誰に何を聞けばいいか分からない」状態をなくし、必要事項を順番に整理してご案内します。",
+              },
+              {
+                num: "04",
+                title: "スピード重視（ただし安全優先）",
+                desc: "迅速に動きますが、二次事故の防止など安全を最優先します。",
+              },
+              {
+                num: "05",
+                title: '"わかりやすさ"重視',
+                desc: "事故直後でも迷わないよう、やることを最小化して案内します。",
+              },
+            ].map((item, i) => (
+              <div
+                key={item.num}
+                className={`animate-scale-up stagger-${i + 1} rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:bg-white/10`}
+              >
+                <span className="mb-2 inline-block text-xs font-bold text-primary">
+                  {item.num}
+                </span>
+                <h3 className="mb-2 text-lg font-bold">{item.title}</h3>
+                <p className="text-sm leading-relaxed text-gray-400">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== 対応サービス ===== */}
+      <section className="py-16 md:py-20">
+        <div className="mx-auto max-w-3xl px-4">
+          <div className="animate-on-scroll mb-4 text-center text-sm font-bold tracking-widest text-accent">
+            SERVICE
+          </div>
+          <h2 className="animate-on-scroll mb-10 text-center text-2xl font-bold md:text-3xl">
+            対応サービス
+          </h2>
+          <div className="grid gap-4 md:grid-cols-2">
+            {[
+              {
+                label: "レッカー・搬送",
+                icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="h-6 w-6 text-accent">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0H21M3.375 14.25h3.86a2.25 2.25 0 0 0 1.519-.585l1.586-1.414a2.25 2.25 0 0 1 1.519-.585h2.391" />
+                  </svg>
+                ),
+              },
+              {
+                label: "現場でのレンタカー（代車）お渡し",
+                icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="h-6 w-6 text-accent">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 5.25a3 3 0 0 1 3 3m3 0a6 6 0 0 1-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1 1 21.75 8.25Z" />
+                  </svg>
+                ),
+              },
+              {
+                label: "鈑金・塗装・修理（事故修理）",
+                icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="h-6 w-6 text-accent">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.049.58.025 1.194-.14 1.743" />
+                  </svg>
+                ),
+              },
+              {
+                label: "整備・点検",
+                icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="h-6 w-6 text-accent">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                  </svg>
+                ),
+              },
+              {
+                label: "保険修理の流れのご案内（必要書類・段取りの整理）",
+                icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="h-6 w-6 text-accent">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15a2.25 2.25 0 0 1 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25Z" />
+                  </svg>
+                ),
+              },
+            ].map((item, i) => (
+              <div
+                key={item.label}
+                className={`animate-scale-up stagger-${i + 1} hover-lift flex items-center gap-4 rounded-xl border border-gray-100 bg-white p-4 shadow-sm`}
+              >
+                {item.icon}
+                <p className="text-sm font-medium md:text-base">
+                  {item.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== FAQ ===== */}
+      <div className="bg-gray-50">
+        <div className="animate-on-scroll">
+          <FAQBlock items={topFAQ} />
+        </div>
+      </div>
+
+      {/* ===== 最終CTA ===== */}
+      <section className="bg-[#1a1a1a] py-16 text-white md:py-20">
+        <div className="mx-auto max-w-3xl px-4 text-center">
+          <h2 className="animate-on-scroll mb-4 text-2xl font-bold md:text-3xl">
+            まずは「今どこで、どういう状況か」
+            <br className="md:hidden" />
+            だけ教えてください
+          </h2>
+          <p className="animate-on-scroll mb-8 text-sm leading-relaxed text-gray-400 md:text-base">
+            事故直後は、判断が難しいのが当たり前です。
+            <br />
+            PALMSが手配・段取りを最短ルートで整理します。
+          </p>
+
+          <div className="animate-scale-up flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+            <a
+              href={`tel:${siteConfig.phoneRaw}`}
+              className="w-full rounded-full bg-emergency px-10 py-5 text-lg font-bold shadow-lg shadow-red-600/30 transition-all duration-300 hover:bg-emergency-dark hover:shadow-red-600/50 hover:scale-105 sm:w-auto"
+            >
+              📞 今すぐ電話する
+            </a>
+            <a
+              href={siteConfig.lineUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full rounded-full bg-accent px-10 py-5 text-lg font-bold shadow-lg shadow-green-700/30 transition-all duration-300 hover:opacity-90 hover:scale-105 sm:w-auto"
+            >
+              💬 LINEで依頼する
+            </a>
+          </div>
+          <p className="animate-fade mt-4 text-xs text-gray-500">
+            LINEなら位置情報・写真の送信もOK
+          </p>
+
+          <div className="animate-fade mt-8 flex flex-col items-center gap-2 text-sm text-gray-500">
+            <a href="/contact/" className="underline transition-colors duration-300 hover:text-white">
+              Webフォームからのお問い合わせはこちら
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== 注意事項 ===== */}
+      <section className="border-t bg-gray-50 py-6">
+        <div className="mx-auto max-w-3xl px-4">
+          <ul className="space-y-1 text-[11px] leading-relaxed text-muted">
+            <li>
+              ※安全確保のため、安全な場所へ移動後の対応となる場合があります。
+            </li>
+            <li>
+              ※在庫・車種・時間帯・道路状況により、現場での差し替えが難しい場合があります。
+            </li>
+            <li>
+              ※貸出には免許証確認等のお手続きが必要です。
+            </li>
+          </ul>
+        </div>
+      </section>
+    </>
+  );
+}
