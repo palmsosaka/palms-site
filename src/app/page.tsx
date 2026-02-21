@@ -408,7 +408,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-3xl px-4 text-center">
           <h2 className="animate-on-scroll mb-4 text-2xl font-bold md:text-3xl">
             まずは「今どこで、どういう状況か」
-            <br className="md:hidden" />
+            <br />
             だけ教えてください
           </h2>
           <p className="animate-on-scroll mb-8 text-sm leading-relaxed text-gray-400 md:text-base">
