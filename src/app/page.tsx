@@ -48,19 +48,18 @@ export default function HomePage() {
       <ScrollAnimator />
 
       {/* ===== HERO ===== */}
-      <section className="relative overflow-hidden bg-[#1a1a1a] text-white">
-        <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-black/40" />
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#f4f9ef] via-white to-white">
         <div className="relative mx-auto max-w-5xl px-4 py-16 md:py-24">
           <div className="text-center">
             {/* Badge */}
-            <div className="hero-animate-1 mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-medium tracking-wider backdrop-blur-sm">
-              <span className="inline-block h-2 w-2 rounded-full bg-green-400 animate-pulse" />
+            <div className="hero-animate-1 mb-6 inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/10 px-4 py-1.5 text-xs font-medium tracking-wider text-accent">
+              <span className="inline-block h-2 w-2 rounded-full bg-accent animate-pulse" />
               24時間受付・可能な限り対応
             </div>
 
-            <h1 className="hero-animate-2 mb-6 text-3xl font-bold leading-tight tracking-tight md:text-5xl md:leading-tight">
+            <h1 className="hero-animate-2 mb-6 text-3xl font-bold leading-tight tracking-tight text-[#1a2e12] md:text-5xl md:leading-tight">
               事故現場で
-              <span className="text-primary">&quot;レンタカー<span className="text-white/70 text-[0.85em]">or</span>代車&quot;</span>
+              <span className="text-accent">&quot;レンタカー<span className="text-[#1a2e12]/60 text-[0.85em]">or</span>代車&quot;</span>
               お渡し
               <br />
               お車とレンタカーを
@@ -68,11 +67,11 @@ export default function HomePage() {
               その場で差し替え
             </h1>
 
-            <p className="hero-animate-3 mx-auto mb-8 max-w-2xl text-base leading-relaxed text-gray-300 md:text-lg">
+            <p className="hero-animate-3 mx-auto mb-8 max-w-2xl text-base leading-relaxed text-gray-600 md:text-lg">
               事故・故障の現場に、レンタカーを積んで駆けつけ
               <br className="hidden md:block" />
               お車はレッカーでお引き取り、あなたは
-              <strong className="text-white">その場で代車に乗り換えて出発</strong>
+              <strong className="text-[#1a2e12]">その場で代車に乗り換えて出発</strong>
               できます
             </p>
 
@@ -85,10 +84,10 @@ export default function HomePage() {
               ].map((item) => (
                 <div
                   key={item.line1}
-                  className="flex items-center gap-2 rounded-lg bg-white/10 px-4 py-2.5 text-sm backdrop-blur-sm"
+                  className="flex items-center gap-2 rounded-lg border border-accent/15 bg-white px-4 py-2.5 text-sm shadow-sm"
                 >
-                  <span className="text-primary">✓</span>
-                  <span>{item.line1}<br />{item.line2}</span>
+                  <span className="text-accent font-bold">✓</span>
+                  <span className="text-gray-700">{item.line1}<br />{item.line2}</span>
                 </div>
               ))}
             </div>
@@ -97,22 +96,22 @@ export default function HomePage() {
             <div className="hero-animate-4 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <a
                 href={`tel:${siteConfig.phoneRaw}`}
-                className="flex w-full items-center justify-center gap-2 rounded-full bg-emergency px-10 py-5 text-lg font-bold shadow-lg shadow-red-600/30 transition-all duration-300 hover:bg-emergency-dark hover:shadow-red-600/50 hover:scale-105 sm:w-auto"
+                className="flex w-full items-center justify-center gap-2 rounded-full bg-accent px-10 py-5 text-lg font-bold text-white shadow-lg shadow-green-800/20 transition-all duration-300 hover:bg-accent/90 hover:shadow-green-800/30 hover:scale-105 sm:w-auto"
               >
-                <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5 text-white"><path d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z" /></svg>
-                今すぐ電話する
+                <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5"><path d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z" /></svg>
+                お気軽にお電話ください
               </a>
               <a
                 href={siteConfig.lineUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full rounded-full bg-accent px-10 py-5 text-lg font-bold shadow-lg shadow-green-700/30 transition-all duration-300 hover:opacity-90 hover:scale-105 sm:w-auto"
+                className="flex w-full items-center justify-center gap-2 rounded-full border-2 border-accent bg-white px-10 py-5 text-lg font-bold text-accent shadow-sm transition-all duration-300 hover:bg-accent/5 hover:scale-105 sm:w-auto"
               >
-                💬 LINEで依頼する
+                💬 LINEで相談する
               </a>
             </div>
             <p className="hero-animate-5 mt-4 text-xs text-gray-400">
-              LINEなら位置情報・写真の送信もOK
+              LINEなら位置情報・写真の送信もスムーズです
             </p>
           </div>
         </div>
@@ -405,14 +404,14 @@ export default function HomePage() {
       </div>
 
       {/* ===== 最終CTA ===== */}
-      <section className="bg-[#1a1a1a] py-16 text-white md:py-20">
+      <section className="bg-gradient-to-b from-[#f4f9ef] to-[#e8f2dc] py-16 md:py-20">
         <div className="mx-auto max-w-3xl px-4 text-center">
-          <h2 className="animate-on-scroll mb-4 text-2xl font-bold md:text-3xl">
+          <h2 className="animate-on-scroll mb-4 text-2xl font-bold text-[#1a2e12] md:text-3xl">
             まずは「今どこで、どういう状況か」
             <br />
             だけ教えてください
           </h2>
-          <p className="animate-on-scroll mb-8 text-sm leading-relaxed text-gray-400 md:text-base">
+          <p className="animate-on-scroll mb-8 text-sm leading-relaxed text-gray-600 md:text-base">
             事故直後は、判断が難しいのが当たり前です。
             <br />
             PALMSが手配・段取りを最短ルートで整理します。
@@ -421,26 +420,26 @@ export default function HomePage() {
           <div className="animate-scale-up flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <a
               href={`tel:${siteConfig.phoneRaw}`}
-              className="flex w-full items-center justify-center gap-2 rounded-full bg-emergency px-10 py-5 text-lg font-bold shadow-lg shadow-red-600/30 transition-all duration-300 hover:bg-emergency-dark hover:shadow-red-600/50 hover:scale-105 sm:w-auto"
+              className="flex w-full items-center justify-center gap-2 rounded-full bg-accent px-10 py-5 text-lg font-bold text-white shadow-lg shadow-green-800/20 transition-all duration-300 hover:bg-accent/90 hover:shadow-green-800/30 hover:scale-105 sm:w-auto"
             >
-              <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5 text-white"><path d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z" /></svg>
-              今すぐ電話する
+              <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5"><path d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z" /></svg>
+              お気軽にお電話ください
             </a>
             <a
               href={siteConfig.lineUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full rounded-full bg-accent px-10 py-5 text-lg font-bold shadow-lg shadow-green-700/30 transition-all duration-300 hover:opacity-90 hover:scale-105 sm:w-auto"
+              className="flex w-full items-center justify-center gap-2 rounded-full border-2 border-accent bg-white px-10 py-5 text-lg font-bold text-accent shadow-sm transition-all duration-300 hover:bg-accent/5 hover:scale-105 sm:w-auto"
             >
-              💬 LINEで依頼する
+              💬 LINEで相談する
             </a>
           </div>
           <p className="animate-fade mt-4 text-xs text-gray-500">
-            LINEなら位置情報・写真の送信もOK
+            LINEなら位置情報・写真の送信もスムーズです
           </p>
 
           <div className="animate-fade mt-8 flex flex-col items-center gap-2 text-sm text-gray-500">
-            <a href="/contact/" className="underline transition-colors duration-300 hover:text-white">
+            <a href="/contact/" className="underline transition-colors duration-300 hover:text-accent">
               Webフォームからのお問い合わせはこちら
             </a>
           </div>
