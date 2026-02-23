@@ -48,20 +48,17 @@ export default function CompanyPage() {
           {/* Google Map */}
           <h2 className="mb-4 text-xl font-bold">アクセス</h2>
           <div className="mb-8 overflow-hidden rounded-lg border">
-            <div className="flex h-64 items-center justify-center bg-gray-200 text-sm text-muted md:h-96">
-              {/* Replace with actual Google Maps embed */}
-              <p>Googleマップ埋め込み</p>
-              {/* Example: */}
-              {/* <iframe
-                src={siteConfig.mapUrl}
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              /> */}
-            </div>
+            <iframe
+              src="https://maps.google.com/maps?q=%E5%A4%A7%E9%98%AA%E5%BA%9C%E5%A0%BA%E5%B8%82%E5%8D%97%E5%8C%BA%E5%92%8C%E7%94%B0379-1&t=m&z=15&output=embed&hl=ja"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="PALMS所在地"
+              className="h-64 w-full md:h-96"
+            />
           </div>
         </div>
       </section>
