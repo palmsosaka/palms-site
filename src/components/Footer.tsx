@@ -36,7 +36,7 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#D2C6B2] text-[#3A3228]">
+    <footer className="bg-gradient-to-b from-[#c5e2a5] to-[#a8d580] text-[#1a2e12]">
       <div className="mx-auto max-w-6xl px-4 py-12">
         <div className="grid gap-8 md:grid-cols-4">
           {/* Brand */}
@@ -65,7 +65,7 @@ export default function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-[#5A5046] hover:text-[#1A1610]"
+                      className="text-sm text-[#2d4a1e] hover:text-[#1a2e12]"
                     >
                       {link.label}
                     </Link>
@@ -76,7 +76,7 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="mt-8 border-t border-[#B8AA96] pt-8 text-center text-sm text-[#7A6E60]">
+        <div className="mt-8 border-t border-[#1a2e12]/15 pt-8 text-center text-sm text-[#2d4a1e]/70">
           &copy; {new Date().getFullYear()} {siteConfig.brand}. All rights
           reserved.
         </div>
