@@ -36,12 +36,11 @@ const footerLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative text-[#3A3228]">
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${BASE_PATH}/images/footer-bg.png)` }}
-      />
-      <div className="relative mx-auto max-w-6xl px-4 py-12">
+    <footer
+      className="bg-[#D2C6B2] bg-cover bg-center bg-no-repeat text-[#3A3228]"
+      style={{ backgroundImage: `url(${BASE_PATH}/images/footer-bg.png)` }}
+    >
+      <div className="mx-auto max-w-6xl px-4 py-12">
         <div className="grid gap-8 md:grid-cols-4">
           {/* Brand */}
           <div>
