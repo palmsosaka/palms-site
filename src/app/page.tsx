@@ -48,7 +48,7 @@ export default function HomePage() {
       <ScrollAnimator />
 
       {/* ===== HERO ===== */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#f4f9ef] via-white to-white">
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#d4eabc] via-[#eaf5de] to-white">
         <div className="relative mx-auto max-w-5xl px-4 py-16 md:py-24">
           <div className="text-center">
             {/* Badge */}
@@ -404,7 +404,7 @@ export default function HomePage() {
       </div>
 
       {/* ===== 最終CTA ===== */}
-      <section className="bg-gradient-to-b from-[#f4f9ef] to-[#e8f2dc] py-16 md:py-20">
+      <section className="bg-gradient-to-b from-[#d4eabc] to-[#c5e2a5] py-16 md:py-20">
         <div className="mx-auto max-w-3xl px-4 text-center">
           <h2 className="animate-on-scroll mb-4 text-2xl font-bold text-[#1a2e12] md:text-3xl">
             まずは「今どこで、どういう状況か」
