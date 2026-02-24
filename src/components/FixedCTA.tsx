@@ -9,7 +9,7 @@ export default function FixedCTA() {
       <a
         href={`tel:${siteConfig.phoneRaw}`}
         onClick={trackCall}
-        className="flex flex-1 items-center justify-center gap-2 bg-[#EE7800] py-4 text-sm font-bold text-white"
+        className="flex flex-1 items-center justify-center gap-2 bg-[#FFD700] py-4 text-sm font-bold text-black"
       >
         <span aria-hidden="true">📞</span>
         今すぐ電話
