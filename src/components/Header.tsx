@@ -63,7 +63,7 @@ export default function Header() {
           <a
             href={`tel:${siteConfig.phoneRaw}`}
             onClick={trackCall}
-            className="rounded-full bg-[#F5A623] px-4 py-2 text-sm font-bold text-white hover:bg-[#e69a1e]"
+            className="rounded-full bg-[#FF8C00] px-4 py-2 text-sm font-bold text-white hover:bg-[#e67e00]"
           >
             電話する
           </a>
