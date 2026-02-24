@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { siteConfig, BASE_PATH } from "@/config/site";
 import FAQBlock from "@/components/FAQBlock";
 import ProblemSection from "@/components/ProblemSection";
@@ -96,22 +97,22 @@ export default function HomePage() {
             <div className="hero-animate-4 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <a
                 href={`tel:${siteConfig.phoneRaw}`}
-                className="flex w-full items-center justify-center gap-2 rounded-full bg-accent px-10 py-5 text-lg font-bold text-white shadow-lg shadow-green-800/20 transition-all duration-300 hover:bg-accent/90 hover:shadow-green-800/30 hover:scale-105 sm:w-auto"
+                className="flex w-full items-center justify-center gap-3 rounded-full bg-[#F5A623] px-12 py-6 text-xl font-bold text-white shadow-lg shadow-yellow-600/25 transition-all duration-300 hover:bg-[#e69a1e] hover:shadow-yellow-600/35 hover:scale-105 sm:w-auto"
               >
-                <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5"><path d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z" /></svg>
-                お気軽にお電話ください
+                <svg viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6"><path d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z" /></svg>
+                今すぐ電話する
               </a>
               <a
                 href={siteConfig.lineUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex w-full items-center justify-center gap-2 rounded-full border-2 border-accent bg-white px-10 py-5 text-lg font-bold text-accent shadow-sm transition-all duration-300 hover:bg-accent/5 hover:scale-105 sm:w-auto"
+                className="flex w-full items-center justify-center gap-3 rounded-full border-2 border-accent bg-white px-12 py-6 text-xl font-bold text-accent shadow-sm transition-all duration-300 hover:bg-accent/5 hover:scale-105 sm:w-auto"
               >
                 💬 LINEで相談する
               </a>
             </div>
             <p className="hero-animate-5 mt-4 text-xs text-gray-400">
-              LINEなら位置情報・写真の送信もスムーズです
+              LINEなら写真・位置情報も送れます
             </p>
           </div>
         </div>
@@ -146,15 +147,14 @@ export default function HomePage() {
             現場で&quot;代車に乗り換え&quot;
           </h2>
           <p className="animate-on-scroll mx-auto mb-12 max-w-xl text-center text-sm leading-relaxed text-muted md:text-base">
-            PALMSは、事故・故障の現場へレンタカーを積載した状態で出向き、
-            お車をレッカーで引き上げると同時に、その場でレンタカーへ車両差し替えが可能です。
+            現場へレンタカーを積んで出動。レッカー引き上げと同時にその場で車両差し替え。
           </p>
 
           <div className="grid gap-6 md:grid-cols-3">
             {[
               {
                 title: "その場で移動手段を確保",
-                desc: "予定を崩しにくい。事故直後でもすぐに移動できます",
+                desc: "事故直後でもすぐに移動できます",
                 icon: (
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="h-8 w-8 text-accent">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0H21M3.375 14.25h3.86a2.25 2.25 0 0 0 1.519-.585l1.586-1.414a2.25 2.25 0 0 1 1.519-.585h2.391a2.25 2.25 0 0 1 1.451.527l1.722 1.472h3.457" />
@@ -162,8 +162,8 @@ export default function HomePage() {
                 ),
               },
               {
-                title: "複数移動が減る",
-                desc: "タクシー・電車・レンタカー店舗…の手間をカット",
+                title: "複数移動が不要",
+                desc: "タクシー・電車の乗り継ぎ不要",
                 icon: (
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="h-8 w-8 text-accent">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 4.5h14.25M3 9h9.75M3 13.5h5.25m5.25-.75L17.25 9m0 0L21 12.75M17.25 9v12" />
@@ -172,7 +172,7 @@ export default function HomePage() {
               },
               {
                 title: "判断コストが下がる",
-                desc: "保険対応・修理手配もまとめて相談。考えることを最小化",
+                desc: "保険・修理もまとめて相談OK",
                 icon: (
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="h-8 w-8 text-accent">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.745 3.745 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
@@ -237,19 +237,19 @@ export default function HomePage() {
               {
                 num: "01",
                 title: "まずはご連絡（電話 / LINE）",
-                desc: "事故状況・場所・車種・保険の有無などを簡単に確認します。安全確保を最優先に、状況に応じた最短手配を行います。",
-                sub: "📞 電話 / 💬 LINE（写真を送れるのでスムーズです）",
+                desc: "状況・場所・車種を確認し、最短手配を行います。",
+                sub: "",
               },
               {
                 num: "02",
                 title: "現場へ出動（レッカー＋代車積載）",
-                desc: "現場状況により、安全な場所へ移動してから対応する場合があります。（道路状況・警察対応・二次被害防止など）",
+                desc: "レンタカーを積んで現場へ駆けつけます。",
                 sub: "",
               },
               {
                 num: "03",
                 title: "車両差し替え → その場で出発",
-                desc: "お車はレッカーで搬送、あなたはレンタカー（代車）へ乗り換え。必要に応じて、修理・保険・日程などもその場で整理します。",
+                desc: "お車はレッカーで搬送、あなたは代車に乗り換えて出発。",
                 sub: "",
               },
             ].map((item, i) => (
@@ -290,27 +290,27 @@ export default function HomePage() {
               {
                 num: "01",
                 title: '事故対応を"分断"させない',
-                desc: "レッカー・代車・修理・保険対応が分かれると、手間もミスも増えます。PALMSは一連の流れをまとめて進められる体制を整えています。",
+                desc: "レッカー・代車・修理・保険をまとめて対応。",
               },
               {
                 num: "02",
                 title: "現場で代車を渡せるから、行動が止まらない",
-                desc: '事故直後の「移動の空白」をなくし、その日の予定を守りやすくします。',
+                desc: "事故直後でもその日の予定を守れます。",
               },
               {
                 num: "03",
                 title: "相談窓口がひとつ",
-                desc: "「誰に何を聞けばいいか分からない」状態をなくし、必要事項を順番に整理してご案内します。",
+                desc: "迷わず相談できる一本化窓口。",
               },
               {
                 num: "04",
                 title: "スピード重視（ただし安全優先）",
-                desc: "迅速に動きますが、二次事故の防止など安全を最優先します。",
+                desc: "迅速対応、安全最優先。",
               },
               {
                 num: "05",
                 title: '"わかりやすさ"重視',
-                desc: "事故直後でも迷わないよう、やることを最小化して案内します。",
+                desc: "やることを最小化して分かりやすくご案内。",
               },
             ].map((item, i) => (
               <div
@@ -343,6 +343,7 @@ export default function HomePage() {
             {[
               {
                 label: "レッカー・搬送",
+                href: "/tow/",
                 icon: (
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="h-6 w-6 text-accent">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0H21M3.375 14.25h3.86a2.25 2.25 0 0 0 1.519-.585l1.586-1.414a2.25 2.25 0 0 1 1.519-.585h2.391" />
@@ -350,7 +351,8 @@ export default function HomePage() {
                 ),
               },
               {
-                label: "現場でのレンタカー（代車）お渡し",
+                label: "レンタカー（代車）お渡し",
+                href: "/rental/",
                 icon: (
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="h-6 w-6 text-accent">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 5.25a3 3 0 0 1 3 3m3 0a6 6 0 0 1-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1 1 21.75 8.25Z" />
@@ -358,7 +360,8 @@ export default function HomePage() {
                 ),
               },
               {
-                label: "鈑金・塗装・修理（事故修理）",
+                label: "鈑金・塗装・修理",
+                href: "/repair/",
                 icon: (
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="h-6 w-6 text-accent">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.049.58.025 1.194-.14 1.743" />
@@ -366,7 +369,8 @@ export default function HomePage() {
                 ),
               },
               {
-                label: "整備・点検",
+                label: "車検・整備",
+                href: "/inspection/",
                 icon: (
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="h-6 w-6 text-accent">
                     <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
@@ -374,23 +378,28 @@ export default function HomePage() {
                 ),
               },
               {
-                label: "保険修理の流れのご案内（必要書類・段取りの整理）",
+                label: "買取・販売",
+                href: "/buy-sell/",
                 icon: (
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="h-6 w-6 text-accent">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15a2.25 2.25 0 0 1 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25Z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                   </svg>
                 ),
               },
             ].map((item, i) => (
-              <div
+              <Link
                 key={item.label}
-                className={`animate-scale-up stagger-${i + 1} hover-lift flex items-center gap-4 rounded-xl border border-gray-100 bg-white p-4 shadow-sm`}
+                href={item.href}
+                className={`animate-scale-up stagger-${i + 1} hover-lift flex items-center gap-4 rounded-xl border border-gray-100 bg-white p-4 shadow-sm transition-colors hover:border-accent/30`}
               >
                 {item.icon}
                 <p className="text-sm font-medium md:text-base">
                   {item.label}
                 </p>
-              </div>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} className="ml-auto h-4 w-4 text-gray-400">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                </svg>
+              </Link>
             ))}
           </div>
         </div>
@@ -412,30 +421,28 @@ export default function HomePage() {
             だけ教えてください
           </h2>
           <p className="animate-on-scroll mb-8 text-sm leading-relaxed text-gray-600 md:text-base">
-            事故直後は、判断が難しいのが当たり前です。
-            <br />
             PALMSが手配・段取りを最短ルートで整理します。
           </p>
 
           <div className="animate-scale-up flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <a
               href={`tel:${siteConfig.phoneRaw}`}
-              className="flex w-full items-center justify-center gap-2 rounded-full bg-accent px-10 py-5 text-lg font-bold text-white shadow-lg shadow-green-800/20 transition-all duration-300 hover:bg-accent/90 hover:shadow-green-800/30 hover:scale-105 sm:w-auto"
+              className="flex w-full items-center justify-center gap-3 rounded-full bg-[#F5A623] px-12 py-6 text-xl font-bold text-white shadow-lg shadow-yellow-600/25 transition-all duration-300 hover:bg-[#e69a1e] hover:shadow-yellow-600/35 hover:scale-105 sm:w-auto"
             >
-              <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5"><path d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z" /></svg>
-              お気軽にお電話ください
+              <svg viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6"><path d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z" /></svg>
+              今すぐ電話する
             </a>
             <a
               href={siteConfig.lineUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex w-full items-center justify-center gap-2 rounded-full border-2 border-accent bg-white px-10 py-5 text-lg font-bold text-accent shadow-sm transition-all duration-300 hover:bg-accent/5 hover:scale-105 sm:w-auto"
+              className="flex w-full items-center justify-center gap-3 rounded-full border-2 border-accent bg-white px-12 py-6 text-xl font-bold text-accent shadow-sm transition-all duration-300 hover:bg-accent/5 hover:scale-105 sm:w-auto"
             >
               💬 LINEで相談する
             </a>
           </div>
           <p className="animate-fade mt-4 text-xs text-gray-500">
-            LINEなら位置情報・写真の送信もスムーズです
+            LINEなら写真・位置情報も送れます
           </p>
 
           <div className="animate-fade mt-8 flex flex-col items-center gap-2 text-sm text-gray-500">
