@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" role="img" aria-label="明るい午前の清潔なガレージ前に停まる積載車のシルエット">
+<defs>
+  <linearGradient id="h1-sky" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#A9CFE3"/>
+    <stop offset="0.45" stop-color="#DCEBDD"/>
+    <stop offset="0.8" stop-color="#F4F1E4"/>
+    <stop offset="1" stop-color="#F8F5EA"/>
+  </linearGradient>
+  <radialGradient id="h1-sun" cx="0.5" cy="0.5" r="0.5">
+    <stop offset="0" stop-color="#FFFDF2" stop-opacity="0.95"/>
+    <stop offset="0.5" stop-color="#FFF7DE" stop-opacity="0.5"/>
+    <stop offset="1" stop-color="#FFF7DE" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="h1-ground" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#F0EBD9"/>
+    <stop offset="0.5" stop-color="#E4DFCE"/>
+    <stop offset="1" stop-color="#D8D2BF"/>
+  </linearGradient>
+  <linearGradient id="h1-wall" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#FDFBF4"/>
+    <stop offset="1" stop-color="#F1ECDD"/>
+  </linearGradient>
+  <linearGradient id="h1-open" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#D9D3C2"/>
+    <stop offset="1" stop-color="#C7C0AC"/>
+  </linearGradient>
+  <radialGradient id="h1-vig" cx="0.5" cy="0.45" r="0.8">
+    <stop offset="0.6" stop-color="#8A8672" stop-opacity="0"/>
+    <stop offset="1" stop-color="#8A8672" stop-opacity="0.16"/>
+  </radialGradient>
+  <filter id="h1-grain">
+    <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch" result="n"/>
+    <feColorMatrix in="n" type="matrix" values="0 0 0 0 0.2  0 0 0 0 0.19  0 0 0 0 0.16  0 0 0 0.04 0"/>
+  </filter>
+</defs>
+
+<!-- 空 -->
+<rect width="1920" height="620" fill="url(#h1-sky)"/>
+<circle cx="1360" cy="150" r="480" fill="url(#h1-sun)"/>
+<!-- 薄い雲 -->
+<g fill="#FFFFFF">
+  <ellipse cx="420" cy="180" rx="190" ry="26" opacity="0.5"/>
+  <ellipse cx="560" cy="210" rx="130" ry="18" opacity="0.35"/>
+  <ellipse cx="1660" cy="120" rx="150" ry="20" opacity="0.4"/>
+  <ellipse cx="1100" cy="90" rx="110" ry="14" opacity="0.3"/>
+</g>
+<!-- 地平の遠景(淡い街並) -->
+<rect x="0" y="586" width="1920" height="34" fill="#C6CFC9" opacity="0.5"/>
+<g fill="#B8C3BE" opacity="0.5">
+  <rect x="60" y="560" width="80" height="26"/>
+  <rect x="180" y="572" width="120" height="14"/>
+  <rect x="1700" y="566" width="90" height="20"/>
+  <rect x="1560" y="576" width="90" height="10"/>
+</g>
+
+<!-- 地面 -->
+<rect y="620" width="1920" height="460" fill="url(#h1-ground)"/>
+<!-- コンクリート目地(遠近) -->
+<g stroke="#C4BCA6" stroke-width="2" opacity="0.55">
+  <line x1="0" y1="760" x2="1920" y2="748"/>
+  <line x1="0" y1="920" x2="1920" y2="900"/>
+  <line x1="440" y1="620" x2="240" y2="1080"/>
+  <line x1="1070" y1="620" x2="1030" y2="1080"/>
+  <line x1="1660" y1="620" x2="1780" y2="1080"/>
+</g>
+
+<!-- 建物(清潔なサービスガレージ・右2/3) -->
+<g>
+  <rect x="700" y="400" width="1220" height="222" fill="url(#h1-wall)"/>
+  <!-- 屋根の見付 -->
+  <rect x="684" y="384" width="1252" height="24" rx="3" fill="#E9E4D4"/>
+  <rect x="684" y="384" width="1252" height="6" rx="3" fill="#FFFFFF" opacity="0.8"/>
+  <!-- SAGEの帯(ブランド識別色) -->
+  <rect x="700" y="416" width="1220" height="12" fill="#A9D18D"/>
+  <!-- サイン位置(抽象・文字なし) -->
+  <rect x="756" y="444" width="150" height="26" rx="13" fill="#252A30" opacity="0.85"/>
+  <!-- 開口部(大きな整備ベイ) -->
+  <rect x="980" y="452" width="380" height="170" fill="url(#h1-open)"/>
+  <g stroke="#BDB49E" stroke-width="2.5" opacity="0.7">
+    <line x1="980" y1="482" x2="1360" y2="482"/>
+    <line x1="980" y1="512" x2="1360" y2="512"/>
+    <line x1="980" y1="542" x2="1360" y2="542"/>
+  </g>
+  <!-- 受付の窓 -->
+  <rect x="1480" y="470" width="240" height="152" fill="#DCE6E2"/>
+  <rect x="1480" y="470" width="240" height="152" fill="none" stroke="#E9E4D4" stroke-width="6"/>
+  <line x1="1600" y1="470" x2="1600" y2="622" stroke="#E9E4D4" stroke-width="5"/>
+  <!-- 壁の柔らかい陰影 -->
+  <rect x="700" y="400" width="70" height="222" fill="#D9D2BF" opacity="0.4"/>
+  <!-- 建物の落ち影(朝の長い影・左へ) -->
+  <path d="M700 622 L360 720 L1920 720 L1920 622 Z" fill="#C9C2AC" opacity="0.4"/>
+</g>
+
+<!-- 積載車(トーンオントーンのシルエット・左) -->
+<g>
+  <!-- 荷台(フラットベッド) -->
+  <path d="M210 690 L560 690 L588 668 L588 700 L210 700 Z" fill="#C7C9C3"/>
+  <rect x="204" y="700" width="392" height="14" rx="4" fill="#B9BBB4"/>
+  <!-- キャブ -->
+  <path d="M596 714 L596 640 Q596 628 608 628 L654 628 Q666 628 672 640 L692 672 Q696 680 696 690 L696 714 Z" fill="#C7C9C3"/>
+  <rect x="606" y="638" width="52" height="30" rx="4" fill="#DCE4E4" opacity="0.9"/>
+  <!-- ホイール -->
+  <circle cx="286" cy="716" r="24" fill="#9DA09A"/>
+  <circle cx="286" cy="716" r="11" fill="#E7E4D6"/>
+  <circle cx="520" cy="716" r="24" fill="#9DA09A"/>
+  <circle cx="520" cy="716" r="11" fill="#E7E4D6"/>
+  <circle cx="646" cy="716" r="24" fill="#9DA09A"/>
+  <circle cx="646" cy="716" r="11" fill="#E7E4D6"/>
+  <!-- SAGEのアクセントライン(車体の識別帯) -->
+  <rect x="214" y="694" width="340" height="4" fill="#BFDDA8" opacity="0.9"/>
+  <!-- 朝の長い影 -->
+  <ellipse cx="430" cy="742" rx="290" ry="14" fill="#B5AD96" opacity="0.5"/>
+</g>
+
+<!-- ビネット+粒子 -->
+<rect width="1920" height="1080" fill="url(#h1-vig)"/>
+<rect width="1920" height="1080" filter="url(#h1-grain)" opacity="0.6"/>
+</svg>

@@ -1,0 +1,302 @@
+/* ============================================================
+   PALMS LAB — プロトタイプ lab.html 移植分の専用CSS
+   (デザイントークンは globals.css :root を参照。chrome-text / reveal はglobal)
+============================================================= */
+.page {
+  background: var(--palms-midnight);
+  color: var(--palms-ivory);
+}
+.wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.sectionLabel {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--electric-aqua);
+  margin-bottom: 14px;
+}
+.sectionTitle {
+  font-size: clamp(28px, 5.4vw, 46px);
+  line-height: 1.25;
+  margin-bottom: 8px;
+}
+.sectionTitleJa {
+  font-family: var(--font-sans-ja);
+  font-weight: 900;
+  color: var(--palms-ivory);
+  font-size: clamp(20px, 3.6vw, 28px);
+  margin-bottom: 22px;
+}
+.section {
+  padding: 80px 0;
+}
+.sectionDark {
+  background: var(--palms-midnight);
+}
+.sectionIvory {
+  background: var(--palms-ivory);
+  color: var(--palms-charcoal);
+}
+.horizonRule {
+  height: 1px;
+  border: none;
+  background: linear-gradient(90deg, transparent, var(--chrome-gray) 30%, var(--chrome-gray) 70%, transparent);
+  opacity: 0.5;
+  margin: 0;
+}
+
+/* ---------- [構想]帯 ---------- */
+.conceptNotice {
+  background: var(--palms-charcoal);
+  border-bottom: 1px solid rgba(169, 175, 184, 0.3);
+}
+.conceptNotice .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  padding: 12px 20px;
+}
+.noticeTag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--sunset-amber);
+  border: 1px solid var(--sunset-amber);
+  padding: 3px 10px;
+  flex: none;
+}
+.conceptNotice p {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.7;
+  color: var(--palms-ivory);
+}
+.mono {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--chrome-gray);
+}
+
+/* ---------- 製図グリッド背景 ---------- */
+.draftBg {
+  background-color: var(--midnight-deep);
+  background-image: linear-gradient(rgba(243, 239, 230, 0.055) 1px, transparent 1px), linear-gradient(90deg, rgba(243, 239, 230, 0.055) 1px, transparent 1px),
+    linear-gradient(rgba(243, 239, 230, 0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(243, 239, 230, 0.035) 1px, transparent 1px);
+  background-size: 160px 160px, 160px 160px, 32px 32px, 32px 32px;
+}
+
+/* ---------- ヒーロー:設計図面 ---------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(169, 175, 184, 0.25);
+}
+.heroInner {
+  position: relative;
+  z-index: 2;
+  padding: 64px 0 8px;
+  text-align: center;
+}
+.heroKicker {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--electric-aqua);
+  margin-bottom: 18px;
+}
+.heroEn {
+  font-size: clamp(44px, 9vw, 84px);
+  line-height: 1;
+  margin-bottom: 22px;
+  letter-spacing: 0.08em;
+}
+.heroCopy {
+  font-family: var(--font-sans-ja);
+  font-weight: 900;
+  font-size: clamp(19px, 4.2vw, 30px);
+  line-height: 1.7;
+  color: var(--palms-ivory);
+  margin-bottom: 10px;
+}
+.heroNote {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--chrome-gray);
+}
+.heroScene {
+  width: 100%;
+  height: auto;
+  margin-top: 8px;
+}
+
+/* ---------- プロジェクトカード(工業製品ラベル風) ---------- */
+.labGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-top: 40px;
+}
+@media (min-width: 640px) {
+  .labGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 980px) {
+  .labGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.labCard {
+  background: linear-gradient(180deg, #141b2b 0%, #101624 100%);
+  border: 1px solid rgba(169, 175, 184, 0.4);
+  display: flex;
+  flex-direction: column;
+}
+.labCard:hover {
+  border-color: var(--electric-aqua);
+}
+.cardLabel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-bottom: 1px solid rgba(169, 175, 184, 0.4);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+}
+.cardNo {
+  color: var(--chrome-gray);
+}
+.cardStatus {
+  color: var(--sunset-amber);
+  border: 1px solid rgba(245, 162, 74, 0.7);
+  padding: 1px 8px;
+  white-space: nowrap;
+}
+.cardThumb {
+  border-bottom: 1px solid rgba(169, 175, 184, 0.4);
+  background-image: linear-gradient(rgba(243, 239, 230, 0.055) 1px, transparent 1px), linear-gradient(90deg, rgba(243, 239, 230, 0.055) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.cardThumb svg {
+  width: 100%;
+  height: auto;
+}
+.cardBody {
+  padding: 18px 18px 22px;
+}
+.cardName {
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--palms-ivory);
+  line-height: 1.5;
+  margin-bottom: 2px;
+}
+.cardEn {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--electric-aqua);
+  margin-bottom: 10px;
+}
+.cardDesc {
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--chrome-gray);
+}
+
+/* ---------- LABの思想(3キーワード) ---------- */
+.ideaList {
+  list-style: none;
+  margin-top: 44px;
+  padding: 0;
+}
+.ideaList li {
+  padding: 34px 0;
+  border-top: 1px solid rgba(169, 175, 184, 0.3);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 32px;
+}
+.ideaList li:last-child {
+  border-bottom: 1px solid rgba(169, 175, 184, 0.3);
+}
+.ideaNo {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  color: var(--chrome-gray);
+  flex: none;
+  width: 64px;
+}
+.ideaWord {
+  font-size: clamp(30px, 6.4vw, 54px);
+  line-height: 1.1;
+  flex: 1 1 auto;
+}
+.ideaLine {
+  flex: 1 1 100%;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--chrome-gray);
+}
+@media (min-width: 820px) {
+  .ideaLine {
+    flex: 1 1 300px;
+  }
+}
+
+/* ---------- 協業CTA(Ivory・実直) ---------- */
+.cta {
+  text-align: center;
+}
+.cta .sectionLabel {
+  color: var(--palms-charcoal);
+}
+.ctaTitle {
+  font-size: clamp(22px, 4.6vw, 34px);
+  font-weight: 900;
+  color: var(--palms-charcoal);
+  margin-bottom: 14px;
+}
+.ctaLine {
+  max-width: 620px;
+  margin: 0 auto 30px;
+  font-size: 15px;
+  color: var(--palms-charcoal);
+}
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 12px 38px;
+  background: var(--palms-charcoal);
+  color: var(--palms-white);
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid var(--palms-charcoal);
+}
+.btnPrimary:hover {
+  background: var(--palms-midnight);
+}
+.ctaNote {
+  margin-top: 18px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: #5a6068;
+}

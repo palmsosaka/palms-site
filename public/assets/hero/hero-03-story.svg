@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" role="img" aria-label="夜、半開きのシャッターから暖かい光が漏れるガレージと旧車のシルエット">
+<defs>
+  <radialGradient id="h3-night" cx="0.5" cy="0.62" r="0.95">
+    <stop offset="0" stop-color="#131B2E"/>
+    <stop offset="0.55" stop-color="#0B1120"/>
+    <stop offset="1" stop-color="#05070E"/>
+  </radialGradient>
+  <linearGradient id="h3-glow-core" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#FFD98F"/>
+    <stop offset="0.55" stop-color="#FFBE6E"/>
+    <stop offset="1" stop-color="#F5A24A"/>
+  </linearGradient>
+  <radialGradient id="h3-door-halo" cx="0.5" cy="0.5" r="0.5">
+    <stop offset="0" stop-color="#F5A24A" stop-opacity="0.5"/>
+    <stop offset="0.55" stop-color="#F5A24A" stop-opacity="0.18"/>
+    <stop offset="1" stop-color="#F5A24A" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="h3-spill" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#F5A24A" stop-opacity="0.6"/>
+    <stop offset="0.5" stop-color="#C97B3E" stop-opacity="0.24"/>
+    <stop offset="1" stop-color="#C97B3E" stop-opacity="0"/>
+  </linearGradient>
+  <radialGradient id="h3-moon" cx="0.5" cy="0.5" r="0.5">
+    <stop offset="0" stop-color="#BFE6EA" stop-opacity="0.85"/>
+    <stop offset="0.35" stop-color="#8FCBD4" stop-opacity="0.3"/>
+    <stop offset="1" stop-color="#3AD7DF" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="h3-vig" cx="0.5" cy="0.5" r="0.75">
+    <stop offset="0.55" stop-color="#000000" stop-opacity="0"/>
+    <stop offset="1" stop-color="#020308" stop-opacity="0.55"/>
+  </radialGradient>
+  <filter id="h3-grain">
+    <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch" result="n"/>
+    <feColorMatrix in="n" type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.05 0"/>
+  </filter>
+</defs>
+
+<!-- 夜空 -->
+<rect width="1920" height="1080" fill="url(#h3-night)"/>
+<!-- 星 -->
+<g fill="#F3EFE6">
+  <circle cx="150" cy="120" r="1.5" opacity="0.5"/><circle cx="360" cy="70" r="1.1" opacity="0.35"/>
+  <circle cx="560" cy="180" r="1.3" opacity="0.4"/><circle cx="820" cy="90" r="1.2" opacity="0.35"/>
+  <circle cx="1080" cy="150" r="1.5" opacity="0.45"/><circle cx="1320" cy="60" r="1.1" opacity="0.3"/>
+  <circle cx="1560" cy="130" r="1.4" opacity="0.45"/><circle cx="1780" cy="200" r="1.2" opacity="0.35"/>
+  <circle cx="240" cy="260" r="1.1" opacity="0.25"/><circle cx="1680" cy="320" r="1.1" opacity="0.25"/>
+  <circle cx="960" cy="230" r="1.2" opacity="0.3"/><circle cx="480" cy="330" r="1.1" opacity="0.22"/>
+</g>
+<!-- 月明かり(アクア差し色) -->
+<circle cx="1640" cy="180" r="200" fill="url(#h3-moon)" opacity="0.5"/>
+<circle cx="1640" cy="180" r="26" fill="#D8EEF0" opacity="0.9"/>
+
+<!-- 建物シルエット -->
+<rect x="360" y="380" width="1200" height="420" fill="#0D1322"/>
+<rect x="360" y="380" width="1200" height="14" fill="#151E33"/>
+<!-- 屋根ライン -->
+<rect x="336" y="362" width="1248" height="22" rx="4" fill="#101827"/>
+<!-- 側面の小窓(アクアの冷光) -->
+<rect x="1448" y="470" width="56" height="72" rx="4" fill="#173441" opacity="0.9"/>
+<rect x="1448" y="470" width="56" height="72" rx="4" fill="#3AD7DF" opacity="0.18"/>
+
+<!-- シャッター開口部の光暈 -->
+<ellipse cx="860" cy="660" rx="560" ry="330" fill="url(#h3-door-halo)"/>
+<!-- 開口部(半開きシャッター) -->
+<g>
+  <!-- 発光する開口 -->
+  <rect x="560" y="470" width="600" height="330" fill="url(#h3-glow-core)"/>
+  <!-- 半開きシャッターの下端(スラット) -->
+  <rect x="552" y="430" width="616" height="52" fill="#0A0F1C"/>
+  <g stroke="#1B2436" stroke-width="3">
+    <line x1="560" y1="446" x2="1160" y2="446"/>
+    <line x1="560" y1="462" x2="1160" y2="462"/>
+  </g>
+  <rect x="552" y="476" width="616" height="10" rx="4" fill="#1E2A40"/>
+  <!-- 開口内の奥壁トーン -->
+  <rect x="560" y="470" width="600" height="330" fill="#8A4A20" opacity="0.18"/>
+  <!-- 天井からの作業灯 -->
+  <rect x="800" y="486" width="120" height="8" rx="4" fill="#FFF2D0"/>
+  <ellipse cx="860" cy="492" rx="150" ry="26" fill="#FFF2D0" opacity="0.35"/>
+</g>
+
+<!-- 車シルエット(開口内・逆光の黒いカットアウト/ロングノーズのクラシッククーペ横姿) -->
+<g>
+  <path d="M612 748
+           Q612 726 632 718
+           L638 700
+           Q642 686 662 682
+           L718 676
+           Q740 648 790 638
+           L878 633
+           Q902 633 922 645
+           L966 678
+           L1072 688
+           Q1102 692 1114 706
+           Q1126 716 1124 734
+           Q1122 748 1108 748
+           Z" fill="#060810"/>
+  <rect x="612" y="746" width="514" height="20" rx="6" fill="#060810"/>
+  <!-- ルーフのリムライト(逆光の輪郭) -->
+  <path d="M718 676 Q740 648 790 638 L878 633 Q902 633 922 645 L964 676"
+        fill="none" stroke="#FFC46A" stroke-width="3.5" stroke-linecap="round" opacity="0.9"/>
+  <path d="M966 678 L1072 688 Q1100 692 1112 705" fill="none" stroke="#FFC46A" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+  <path d="M638 700 Q642 688 662 684 L716 678" fill="none" stroke="#FFC46A" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+  <!-- タイヤ -->
+  <circle cx="706" cy="768" r="30" fill="#04050A"/>
+  <circle cx="1022" cy="768" r="30" fill="#04050A"/>
+  <circle cx="706" cy="768" r="30" fill="none" stroke="#F5A24A" stroke-opacity="0.3" stroke-width="2"/>
+  <circle cx="1022" cy="768" r="30" fill="none" stroke="#F5A24A" stroke-opacity="0.3" stroke-width="2"/>
+</g>
+
+<!-- 人物シルエット(工具を片付ける・後ろ姿) -->
+<g fill="#060810">
+  <circle cx="1210" cy="600" r="17"/>
+  <path d="M1188 622 C1192 612 1228 612 1232 622 L1236 700 L1220 700 L1218 748 L1224 800 L1208 800 L1204 748 L1200 800 L1184 800 L1190 748 L1188 700 L1184 700 Z"/>
+  <!-- 手元の工具箱 -->
+  <rect x="1236" y="688" width="44" height="26" rx="4"/>
+  <rect x="1250" y="680" width="16" height="8" rx="3"/>
+</g>
+
+<!-- 地面への光のこぼれ -->
+<path d="M560 800 L1160 800 L1360 1080 L360 1080 Z" fill="url(#h3-spill)"/>
+<!-- 地面の反射筋 -->
+<g opacity="0.35" stroke="#F5A24A" stroke-linecap="round">
+  <line x1="700" y1="830" x2="660" y2="1000" stroke-width="4" opacity="0.5"/>
+  <line x1="960" y1="836" x2="960" y2="1030" stroke-width="5" opacity="0.6"/>
+  <line x1="1140" y1="830" x2="1210" y2="1010" stroke-width="4" opacity="0.45"/>
+</g>
+<!-- 建物左右の地面暗部 -->
+<rect y="796" width="1920" height="284" fill="#05070E" opacity="0.35"/>
+
+<!-- ビネット+粒子 -->
+<rect width="1920" height="1080" fill="url(#h3-vig)"/>
+<rect width="1920" height="1080" filter="url(#h3-grain)" opacity="0.5"/>
+</svg>

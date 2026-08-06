@@ -1,0 +1,663 @@
+/* ============================================================
+   PALMS トップページ — プロトタイプ index.html 移植分の専用CSS
+   (デザイントークンは globals.css :root を参照)
+============================================================= */
+
+/* ---------- 1. ヒーローローテーション ---------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  height: calc(100svh - 150px);
+  min-height: 440px;
+  max-height: 760px;
+  color: var(--palms-white);
+  background: var(--palms-midnight);
+}
+@media (min-width: 720px) {
+  .hero {
+    height: 80vh;
+    min-height: 560px;
+    max-height: 680px;
+  }
+}
+.heroSlides {
+  position: absolute;
+  inset: 0;
+}
+.heroSlide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.4s ease;
+}
+.heroSlide.isActive {
+  opacity: 1;
+}
+.heroSlide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.heroScrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+      90deg,
+      rgba(16, 24, 39, 0.54) 0%,
+      rgba(16, 24, 39, 0.34) 34%,
+      rgba(16, 24, 39, 0.1) 56%,
+      rgba(16, 24, 39, 0) 72%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(16, 24, 39, 0.2) 0%,
+      rgba(16, 24, 39, 0) 34%,
+      rgba(16, 24, 39, 0.16) 60%,
+      rgba(16, 24, 39, 0.62) 100%
+    );
+}
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+}
+.heroTextBlock {
+  padding-top: 96px;
+}
+@media (min-width: 720px) {
+  .heroTextBlock {
+    padding-top: 64px;
+  }
+}
+.heroKicker {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.4em;
+  color: var(--electric-aqua);
+  margin-bottom: 12px;
+  text-shadow: 0 2px 14px rgba(16, 24, 39, 0.5);
+}
+.heroEn {
+  font-family: var(--font-display-en);
+  font-weight: 700;
+  font-size: clamp(38px, 10vw, 72px);
+  letter-spacing: 0.01em;
+  line-height: 1.02;
+  text-shadow: 0 2px 22px rgba(0, 0, 0, 0.55);
+}
+.heroEnDot {
+  color: var(--sunset-amber);
+}
+.heroJa {
+  margin-top: 14px;
+  font-size: clamp(16px, 3.6vw, 21px);
+  font-weight: 700;
+  line-height: 1.7;
+  max-width: 22ch;
+  text-shadow: 0 1px 14px rgba(0, 0, 0, 0.6);
+}
+.heroCtaBlock {
+  margin-top: auto;
+  padding: 20px 0 clamp(28px, 6vh, 48px);
+}
+.heroCta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 560px;
+}
+@media (min-width: 720px) {
+  .heroCta {
+    flex-direction: row;
+    max-width: 680px;
+  }
+  .heroCta a {
+    flex: 1;
+    white-space: nowrap;
+  }
+}
+.heroDots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 14px;
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+.heroDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.42);
+  cursor: pointer;
+}
+.heroDot.isActive {
+  width: 22px;
+  border-radius: 4px;
+  background: var(--palms-white);
+}
+
+/* ---------- 汎用ボタン ---------- */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 56px;
+  padding: 14px 22px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+  line-height: 1.35;
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+.btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+}
+.btnPrimary {
+  background: var(--palms-charcoal);
+  color: var(--palms-white);
+  border: 2px solid var(--palms-sage);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.28);
+}
+.btnSecondary {
+  background: var(--palms-white);
+  color: var(--palms-charcoal);
+  border: 2px solid var(--palms-white);
+}
+.btnIcon {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ---------- セクション共通見出し ---------- */
+.secLabel {
+  font-family: var(--font-display-en);
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--sunset-amber);
+  margin-bottom: 8px;
+}
+.secTitle {
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1.45;
+  margin-bottom: 8px;
+  max-width: 20ch;
+}
+@media (min-width: 720px) {
+  .secTitle {
+    font-size: 32px;
+    max-width: none;
+  }
+}
+
+/* ---------- 3チェック帯(既存LP強訴求・ヒーロー下1箇所に集約) ---------- */
+.checksBand {
+  background: var(--palms-charcoal);
+  color: var(--palms-white);
+}
+.checkItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(191, 221, 168, 0.35);
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 13px;
+}
+.checkItem b {
+  color: var(--palms-sage);
+  font-weight: 900;
+}
+
+/* ---------- 2.「困ったら」電話パネル ---------- */
+.callPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  background: linear-gradient(135deg, #232830 0%, #101827 100%);
+  border-radius: 18px;
+  padding: 26px 24px;
+  margin-top: 14px;
+  color: var(--palms-white);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 14px 34px rgba(16, 24, 39, 0.22);
+}
+@media (min-width: 720px) {
+  .callPanel {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 34px;
+  }
+}
+.callPanel::after {
+  content: "";
+  position: absolute;
+  right: -70px;
+  top: -70px;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(191, 221, 168, 0.16), rgba(191, 221, 168, 0) 70%);
+}
+.callKicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--palms-sage);
+}
+.callKicker::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--palms-sage);
+  box-shadow: 0 0 0 4px rgba(191, 221, 168, 0.18);
+}
+.callNumber {
+  display: block;
+  font-family: var(--font-display-en);
+  font-size: clamp(30px, 7.4vw, 44px);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.15;
+  color: var(--palms-white);
+  margin-top: 6px;
+}
+.callMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--chrome-gray);
+}
+.callMeta b {
+  color: #e7eae2;
+  font-weight: 700;
+}
+.callAction {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: var(--palms-sage);
+  color: var(--palms-midnight);
+  font-weight: 900;
+  font-size: 16px;
+  border-radius: 12px;
+  padding: 16px 22px;
+  min-height: 54px;
+}
+@media (min-width: 720px) {
+  .callAction {
+    min-width: 200px;
+  }
+}
+.subEntry {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-top: 12px;
+}
+@media (min-width: 720px) {
+  .subEntry {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.subCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid #dcd8cc;
+  border-radius: 12px;
+  background: var(--palms-ivory);
+  padding: 14px 16px;
+  text-decoration: none;
+  color: var(--palms-charcoal);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.subCard:hover {
+  border-color: var(--palms-sage);
+  background: #fff;
+}
+.subIcon {
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border-radius: 10px;
+  background: var(--palms-white);
+  border: 1.5px solid var(--palms-sage);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---------- 3. 一本の道(3フェーズジャーニー) ---------- */
+.journey {
+  list-style: none;
+  margin: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 30px;
+  padding-left: 34px;
+}
+@media (min-width: 720px) {
+  .journey {
+    flex-direction: row;
+    padding-left: 0;
+    padding-top: 46px;
+    gap: 26px;
+  }
+}
+.journey::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 14px;
+  bottom: 14px;
+  width: 8px;
+  border-radius: 4px;
+  background: var(--palms-charcoal);
+}
+@media (min-width: 720px) {
+  .journey::before {
+    left: 8px;
+    right: 8px;
+    top: 19px;
+    bottom: auto;
+    width: auto;
+    height: 8px;
+  }
+}
+.jPhase {
+  position: relative;
+  padding: 0 0 26px;
+}
+@media (min-width: 720px) {
+  .jPhase {
+    flex: 1;
+    padding: 0;
+  }
+  .jPhase:nth-child(2) {
+    flex: 1.7;
+  }
+}
+.jPhase:last-child {
+  padding-bottom: 0;
+}
+.jPhase::before {
+  content: "";
+  position: absolute;
+  left: -31px;
+  top: 4px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--palms-ivory);
+  border: 5px solid var(--palms-charcoal);
+  box-sizing: border-box;
+}
+@media (min-width: 720px) {
+  .jPhase::before {
+    left: 0;
+    top: -36px;
+  }
+}
+.jYou::before {
+  border-color: var(--palms-charcoal);
+  background: var(--palms-sage);
+}
+.jHead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.jNum {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: #8a8d92;
+}
+.jTitle {
+  font-size: 19px;
+  font-weight: 900;
+}
+.jActor {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  border-radius: 20px;
+  padding: 3px 10px;
+}
+.jActorYou {
+  background: var(--palms-sage);
+  color: var(--palms-midnight);
+}
+.jActorPalms {
+  background: var(--palms-charcoal);
+  color: var(--palms-white);
+}
+.jDesc {
+  font-size: 13px;
+  color: #5a6068;
+  margin-top: 4px;
+  max-width: 560px;
+}
+.jChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+.jChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--palms-white);
+  border: 1px solid #d8d3c5;
+  border-radius: 9px;
+  padding: 8px 13px;
+  font-size: 13px;
+  font-weight: 700;
+}
+.flowNote {
+  margin-top: 26px;
+  font-size: 13px;
+  color: #5a6068;
+}
+@media (min-width: 720px) {
+  .flowNote {
+    text-align: center;
+  }
+}
+.flowNote a {
+  color: var(--palms-charcoal);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* ---------- 4. 4本柱ビジュアルカード ---------- */
+.pillarGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-top: 8px;
+}
+@media (min-width: 720px) {
+  .pillarGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1000px) {
+  .pillarGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.pillarCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 14px;
+  padding: 26px 22px;
+  min-height: 172px;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+.pillarIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+.pillarEn {
+  font-family: var(--font-display-en);
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+.pillarLine {
+  font-size: 14px;
+  font-weight: 500;
+  max-width: 22ch;
+}
+.planNote {
+  display: inline-block;
+  margin-top: auto;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid currentColor;
+  opacity: 0.85;
+}
+.pillarService {
+  background: var(--palms-white);
+  border: 1px solid #dcd8cc;
+  color: var(--palms-charcoal);
+}
+.pillarService .pillarIcon {
+  background: var(--palms-ivory);
+}
+.pillarMotors {
+  background: var(--palms-charcoal);
+  color: var(--palms-white);
+}
+.pillarExperience {
+  background: var(--palms-midnight);
+  color: var(--palms-white);
+}
+.pillarLab {
+  background: linear-gradient(155deg, #101827 0%, #1c2440 100%);
+  color: var(--palms-white);
+}
+
+/* ---------- 5. EXPERIENCE誘導 Midnight帯 ---------- */
+.experienceBand {
+  position: relative;
+  overflow: hidden;
+  min-height: 400px;
+  color: var(--palms-white);
+  display: flex;
+  align-items: center;
+}
+@media (min-width: 720px) {
+  .experienceBand {
+    min-height: 480px;
+  }
+}
+.expVisual {
+  position: absolute;
+  inset: 0;
+}
+.expVisual svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.expScrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(16, 24, 39, 0.22) 0%, rgba(16, 24, 39, 0.62) 70%, rgba(16, 24, 39, 0.82) 100%);
+}
+.expContent {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  width: 100%;
+}
+.expContent .secTitle {
+  color: var(--palms-white);
+  margin: 0 auto 22px;
+  max-width: 20ch;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.5);
+}
+.expContent .btn {
+  display: inline-flex;
+  max-width: 360px;
+  margin: 0 auto;
+}
+.expNote {
+  margin-top: 16px;
+  font-size: 12px;
+  color: var(--chrome-gray);
+}
+
+/* ---------- 6. ブランドストーリー ---------- */
+.story {
+  background: var(--palms-white);
+  text-align: center;
+}
+.storyLogo {
+  height: 44px;
+  margin: 0 auto 22px;
+}
+.storyText {
+  max-width: 520px;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 2;
+}
+.storySign {
+  margin-top: 18px;
+  font-family: var(--font-display-en);
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  color: var(--sunset-amber);
+}
