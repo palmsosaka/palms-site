@@ -46,17 +46,18 @@ export default function Footer() {
           <div>
             <Link href="/" className="mb-3 inline-block">
               <Image
-                src={`${BASE_PATH}/images/logo.png`}
+                src={`${BASE_PATH}/assets/logo/palms-logo-solid.svg`}
                 alt={siteConfig.brand}
-                width={120}
+                width={73}
                 height={40}
-                className="h-10 w-auto mix-blend-multiply"
+                className="h-10 w-auto"
               />
             </Link>
             <p className="text-sm">{siteConfig.companyName}</p>
             <p className="mt-2 text-sm">{siteConfig.address}</p>
-            <p className="text-sm">TEL: {siteConfig.phone}</p>
-            <p className="text-sm">FAX: {siteConfig.fax}</p>
+            <p className="text-sm">TEL(直通): {siteConfig.phone}</p>
+            <p className="text-sm">TEL(固定): {siteConfig.phoneFixed}</p>
+            <p className="text-sm">FAX: {siteConfig.faxKeep}</p>
           </div>
 
           {/* Links */}

@@ -108,7 +108,9 @@ export default function PrivacyPage() {
                 <br />
                 住所: {siteConfig.address}
                 <br />
-                電話: {siteConfig.phone}
+                電話（直通）: {siteConfig.phone}
+                <br />
+                電話（固定）: {siteConfig.phoneFixed}
               </p>
             </div>
           </div>

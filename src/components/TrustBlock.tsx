@@ -1,3 +1,5 @@
+import { siteConfig } from "@/config/site";
+
 const trustItems = [
   {
     icon: "🔧",
@@ -7,7 +9,7 @@ const trustItems = [
   {
     icon: "⚡",
     title: "迅速な対応",
-    description: "可能な限り24時間対応。最短での現場手配を目指します",
+    description: `受付${siteConfig.hours}。${siteConfig.hoursNote}`,
   },
   {
     icon: "📋",

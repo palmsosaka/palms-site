@@ -28,11 +28,11 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-        <Link href="/" className="block">
+        <Link href="/" className="block text-palms-charcoal">
           <Image
-            src={`${BASE_PATH}/images/logo.png`}
+            src={`${BASE_PATH}/assets/logo/palms-logo.svg`}
             alt={siteConfig.brand}
-            width={120}
+            width={73}
             height={40}
             className="h-10 w-auto"
             priority
@@ -63,7 +63,7 @@ export default function Header() {
           <a
             href={`tel:${siteConfig.phoneRaw}`}
             onClick={trackCall}
-            className="rounded-full bg-[#FFD700] px-4 py-2 text-sm font-bold text-black hover:bg-[#e6c200]"
+            className="rounded-full bg-palms-sage px-4 py-2 text-sm font-bold text-palms-midnight hover:opacity-90"
           >
             電話する
           </a>

@@ -18,8 +18,7 @@ const topFAQ = [
   },
   {
     question: "夜間・休日でも対応できますか？",
-    answer:
-      "24時間受付（可能な限り対応）しています。混雑状況や安全上の理由で到着時間が前後する場合があります。",
+    answer: `受付は${siteConfig.hours}です。${siteConfig.hoursNote}混雑状況や安全上の理由で到着時間が前後する場合があります。`,
   },
   {
     question: "料金はいくらですか？",
@@ -49,30 +48,38 @@ export default function HomePage() {
       <ScrollAnimator />
 
       {/* ===== HERO ===== */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#d4eabc] via-[#eaf5de] to-white">
+      <section
+        className="relative overflow-hidden bg-palms-midnight bg-cover bg-center"
+        style={{
+          backgroundImage: `linear-gradient(180deg, rgba(16,24,39,.55) 0%, rgba(16,24,39,.35) 40%, rgba(16,24,39,.7) 100%), url(${BASE_PATH}/assets/hero/hero-02-experience.svg)`,
+        }}
+      >
         <div className="relative mx-auto max-w-5xl px-4 py-16 md:py-24">
-          <div className="text-center">
+          <div className="text-center text-white">
             {/* Badge */}
-            <div className="hero-animate-1 mb-6 inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/10 px-4 py-1.5 text-xs font-medium tracking-wider text-accent">
-              <span className="inline-block h-2 w-2 rounded-full bg-accent animate-pulse" />
-              24時間受付・可能な限り対応
+            <div className="hero-animate-1 mb-6 inline-flex items-center gap-2 rounded-full border border-palms-sage/40 bg-white/10 px-4 py-1.5 text-xs font-medium tracking-wider text-palms-sage backdrop-blur-sm">
+              <span className="inline-block h-2 w-2 rounded-full bg-palms-sage animate-pulse" />
+              受付 {siteConfig.hours}
             </div>
 
-            <h1 className="hero-animate-2 mb-6 text-3xl font-bold leading-tight tracking-tight text-[#1a2e12] md:text-5xl md:leading-tight">
-              事故現場で
-              <span className="text-accent">&quot;レンタカー<span className="text-[#1a2e12]/60 text-[0.85em]">or</span>代車&quot;</span>
-              お渡し
-              <br />
-              お車とレンタカーを
-              <br className="md:hidden" />
-              その場で差し替え
+            <p className="hero-animate-2 mb-2 text-xs font-bold tracking-[0.4em] text-palms-aqua">
+              PALMS
+            </p>
+            <h1 className="hero-animate-2 mb-4 text-4xl font-bold leading-tight tracking-tight text-white md:text-6xl">
+              MOVE AGAIN
+              <span className="text-palms-amber">.</span>
             </h1>
+            <p className="hero-animate-3 mx-auto mb-6 max-w-2xl text-lg leading-relaxed text-palms-ivory md:text-xl">
+              止まった車を動かす。
+              <br />
+              止まっていた憧れも動かす。
+            </p>
 
-            <p className="hero-animate-3 mx-auto mb-8 max-w-2xl text-base leading-relaxed text-gray-600 md:text-lg">
+            <p className="hero-animate-3 mx-auto mb-8 max-w-2xl text-sm leading-relaxed text-white/80 md:text-base">
               事故・故障の現場に、レンタカーを積んで駆けつけ
               <br className="hidden md:block" />
               お車はレッカーでお引き取り、あなたは
-              <strong className="text-[#1a2e12]">その場で代車に乗り換えて出発</strong>
+              <strong className="text-white">その場で代車に乗り換えて出発</strong>
               できます
             </p>
 
@@ -81,14 +88,14 @@ export default function HomePage() {
               {[
                 { line1: "事故現場で車両入替", line2: "（レッカー＋代車）" },
                 { line1: "保険案件も", line2: "ワンストップ対応" },
-                { line1: "受付：24時間", line2: "（可能な限り対応）" },
+                { line1: `受付：${siteConfig.hours}`, line2: siteConfig.hoursNote },
               ].map((item) => (
                 <div
                   key={item.line1}
-                  className="flex items-center gap-2 rounded-lg border border-accent/15 bg-white px-4 py-2.5 text-sm shadow-sm"
+                  className="flex items-center gap-2 rounded-lg border border-white/15 bg-white/10 px-4 py-2.5 text-sm shadow-sm backdrop-blur-sm"
                 >
-                  <span className="text-accent font-bold">✓</span>
-                  <span className="text-gray-700">{item.line1}<br />{item.line2}</span>
+                  <span className="text-palms-sage font-bold">✓</span>
+                  <span className="text-white/90">{item.line1}<br />{item.line2}</span>
                 </div>
               ))}
             </div>
@@ -97,7 +104,7 @@ export default function HomePage() {
             <div className="hero-animate-4 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <a
                 href={`tel:${siteConfig.phoneRaw}`}
-                className="flex w-full items-center justify-center gap-3 rounded-full bg-[#F5A623] px-12 py-6 text-xl font-bold text-white shadow-lg shadow-yellow-600/25 transition-all duration-300 hover:bg-[#e69a1e] hover:shadow-yellow-600/35 hover:scale-105 sm:w-auto"
+                className="flex w-full items-center justify-center gap-3 rounded-full bg-palms-sage px-12 py-6 text-xl font-bold text-palms-midnight shadow-lg transition-all duration-300 hover:opacity-90 hover:scale-105 sm:w-auto"
               >
                 <svg viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6"><path d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z" /></svg>
                 今すぐ電話する
@@ -106,12 +113,12 @@ export default function HomePage() {
                 href={siteConfig.lineUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex w-full items-center justify-center gap-3 rounded-full border-2 border-accent bg-white px-12 py-6 text-xl font-bold text-accent shadow-sm transition-all duration-300 hover:bg-accent/5 hover:scale-105 sm:w-auto"
+                className="flex w-full items-center justify-center gap-3 rounded-full border-2 border-palms-sage bg-transparent px-12 py-6 text-xl font-bold text-white shadow-sm transition-all duration-300 hover:bg-white/10 hover:scale-105 sm:w-auto"
               >
                 💬 LINEで相談する
               </a>
             </div>
-            <p className="hero-animate-5 mt-4 text-xs text-gray-400">
+            <p className="hero-animate-5 mt-4 text-xs text-white/60">
               LINEなら写真・位置情報も送れます
             </p>
           </div>
@@ -427,7 +434,7 @@ export default function HomePage() {
           <div className="animate-scale-up flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <a
               href={`tel:${siteConfig.phoneRaw}`}
-              className="flex w-full items-center justify-center gap-3 rounded-full bg-[#F5A623] px-12 py-6 text-xl font-bold text-white shadow-lg shadow-yellow-600/25 transition-all duration-300 hover:bg-[#e69a1e] hover:shadow-yellow-600/35 hover:scale-105 sm:w-auto"
+              className="flex w-full items-center justify-center gap-3 rounded-full bg-palms-sage px-12 py-6 text-xl font-bold text-palms-midnight shadow-lg transition-all duration-300 hover:opacity-90 hover:scale-105 sm:w-auto"
             >
               <svg viewBox="0 0 24 24" fill="currentColor" className="h-6 w-6"><path d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z" /></svg>
               今すぐ電話する

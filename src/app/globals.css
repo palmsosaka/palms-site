@@ -1,9 +1,22 @@
 @import "tailwindcss";
 
+/* ===== PALMS デザイントークン(CSS変数) ===== */
+:root {
+  --palms-midnight: #101827;
+  --palms-ivory: #F3EFE6;
+  --palms-sage: #BFDDA8;
+  --palms-charcoal: #252A30;
+  --palms-white: #FFFFFF;
+  --palms-aqua: #3AD7DF;
+  --palms-magenta: #F24F9D;
+  --palms-amber: #F5A24A;
+  --palms-chrome: #A9AFB8;
+}
+
 @theme inline {
-  --color-primary: #CFE8B4;
-  --color-primary-dark: #A8D480;
-  --color-primary-light: #E8F5D6;
+  --color-primary: #BFDDA8;
+  --color-primary-dark: #A0C98A;
+  --color-primary-light: #EAF3E1;
   --color-accent: #4A7C2E;
   --color-emergency: #DC2626;
   --color-emergency-dark: #B91C1C;
@@ -11,8 +24,16 @@
   --color-foreground: #171717;
   --color-muted: #6B7280;
   --color-border: #E5E7EB;
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-palms-midnight: #101827;
+  --color-palms-ivory: #F3EFE6;
+  --color-palms-sage: #BFDDA8;
+  --color-palms-charcoal: #252A30;
+  --color-palms-aqua: #3AD7DF;
+  --color-palms-magenta: #F24F9D;
+  --color-palms-amber: #F5A24A;
+  --color-palms-chrome: #A9AFB8;
+  --font-sans: Arial, Helvetica, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  --font-mono: "IBM Plex Mono", "SFMono-Regular", Menlo, monospace;
 }
 
 body {

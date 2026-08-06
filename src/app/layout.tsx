@@ -1,21 +1,10 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FixedCTA from "@/components/FixedCTA";
-import { siteConfig } from "@/config/site";
+import { siteConfig, BASE_PATH } from "@/config/site";
 import { localBusinessSchema } from "@/lib/schema";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: {
@@ -23,6 +12,17 @@ export const metadata: Metadata = {
     template: `%s｜${siteConfig.brand}`,
   },
   description: `事故・故障のその場から、レッカー〜修理〜レンタカーまで一括対応。保険修理のご相談も可能。${siteConfig.area}で迅速手配なら${siteConfig.companyName}へ。`,
+  icons: {
+    icon: [
+      { url: `${BASE_PATH}/favicon.ico`, sizes: "any" },
+      { url: `${BASE_PATH}/assets/icon/icon-32.png`, sizes: "32x32", type: "image/png" },
+    ],
+    apple: `${BASE_PATH}/assets/icon/apple-touch-icon.png`,
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: siteConfig.themeColor,
 };
 
 export default function RootLayout({
@@ -55,9 +55,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className="antialiased">
         <Header />
         <main className="main-content">{children}</main>
         <Footer />

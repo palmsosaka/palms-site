@@ -7,7 +7,7 @@ export function localBusinessSchema() {
     name: siteConfig.companyName,
     alternateName: siteConfig.brand,
     url: siteConfig.siteUrl,
-    telephone: siteConfig.phone,
+    telephone: "+81-80-4026-8128",
     address: {
       "@type": "PostalAddress",
       streetAddress: siteConfig.address,
