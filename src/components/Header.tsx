@@ -95,8 +95,8 @@ export default function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-sm">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3">
+    <header className="sticky top-0 z-50 border-b border-[rgba(37,42,48,0.12)] bg-white/95 backdrop-blur-sm">
+      <div className="mx-auto flex max-w-[1120px] items-center justify-between gap-3 px-6 py-3.5">
         <Link href="/" className="block text-palms-charcoal" aria-label="PALMS ホーム">
           <Image
             src={`${BASE_PATH}/assets/logo/palms-logo.svg`}
@@ -112,7 +112,7 @@ export default function Header() {
         <nav className="hidden items-center gap-1 lg:flex" aria-label="グローバルナビゲーション">
           <Link
             href="/emergency/"
-            className="rounded bg-palms-sage px-3 py-2 text-sm font-bold text-palms-midnight hover:brightness-95"
+            className="mr-1 rounded-full bg-palms-sage px-4 py-2 text-[13px] font-bold text-palms-midnight transition hover:brightness-105"
           >
             事故・トラブル
           </Link>
@@ -123,19 +123,19 @@ export default function Header() {
           >
             <button
               type="button"
-              className="rounded px-2 py-1 text-sm hover:bg-primary-light"
+              className="rounded px-2.5 py-2 text-[13.5px] font-medium text-palms-charcoal transition hover:text-palms-midnight hover:bg-palms-ivory"
               onClick={() => setIsServiceOpen((v) => !v)}
               aria-expanded={isServiceOpen}
             >
-              サービス ▼
+              サービス <span aria-hidden="true" className="text-[10px] opacity-60">▼</span>
             </button>
             {isServiceOpen && (
-              <div className="absolute left-0 top-full z-50 w-56 rounded-lg border border-border bg-white py-2 shadow-lg">
+              <div className="absolute left-0 top-full z-50 mt-1 w-60 rounded-lg border border-[rgba(37,42,48,0.14)] bg-white py-2 shadow-[0_12px_32px_rgba(16,24,39,0.12)]">
                 {serviceLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="block px-4 py-2 text-sm hover:bg-primary-light"
+                    className="block px-4 py-2.5 text-[13.5px] transition hover:bg-palms-ivory"
                   >
                     {link.label}
                   </Link>
@@ -143,16 +143,16 @@ export default function Header() {
               </div>
             )}
           </div>
-          <Link href="/buy-sell/" className="rounded px-2 py-1 text-sm hover:bg-primary-light">
+          <Link href="/buy-sell/" className="rounded px-2.5 py-2 font-[family-name:var(--font-display-en)] text-[13px] font-medium tracking-[0.04em] text-palms-charcoal transition hover:bg-palms-ivory">
             MOTORS
           </Link>
-          <Link href="/experience/" className="rounded px-2 py-1 text-sm hover:bg-primary-light">
+          <Link href="/experience/" className="rounded px-2.5 py-2 font-[family-name:var(--font-display-en)] text-[13px] font-medium tracking-[0.04em] text-palms-charcoal transition hover:bg-palms-ivory">
             EXPERIENCE
           </Link>
-          <Link href="/lab/" className="rounded px-2 py-1 text-sm hover:bg-primary-light">
+          <Link href="/lab/" className="rounded px-2.5 py-2 font-[family-name:var(--font-display-en)] text-[13px] font-medium tracking-[0.04em] text-palms-charcoal transition hover:bg-palms-ivory">
             LAB
           </Link>
-          <Link href="/company/" className="rounded px-2 py-1 text-sm hover:bg-primary-light">
+          <Link href="/company/" className="rounded px-2.5 py-2 text-[13.5px] font-medium text-palms-charcoal transition hover:bg-palms-ivory">
             会社案内
           </Link>
         </nav>
@@ -162,16 +162,17 @@ export default function Header() {
           <a
             href={`tel:${siteConfig.phoneRaw}`}
             onClick={trackCall}
-            className="rounded-full bg-palms-sage px-4 py-2 text-sm font-bold text-palms-midnight hover:opacity-90"
+            className="flex flex-col items-end rounded-full bg-palms-sage py-1.5 pl-5 pr-5 leading-tight text-palms-midnight transition hover:brightness-105"
           >
-            電話する
+            <span className="font-[family-name:var(--font-display-en)] text-[15px] font-bold tabular-nums">{siteConfig.phone}</span>
+            <span className="text-[10px] font-bold tracking-wide">{siteConfig.hours}</span>
           </a>
           <a
             href={siteConfig.lineUrl}
             onClick={trackLine}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-full bg-accent px-4 py-2 text-sm font-bold text-white hover:opacity-90"
+            className="rounded-full border border-palms-charcoal px-4 py-2 text-[13px] font-bold text-palms-charcoal transition hover:bg-palms-charcoal hover:text-white"
           >
             LINEで依頼
           </a>

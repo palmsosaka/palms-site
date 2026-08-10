@@ -74,6 +74,16 @@ export default function Footer() {
               <br />
               FAX: {siteConfig.faxKeep}
             </p>
+            <p className="mt-3 text-sm">
+              <a
+                href={siteConfig.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:opacity-80"
+              >
+                Instagram @palms_moveagain
+              </a>
+            </p>
           </div>
 
           {/* Links */}

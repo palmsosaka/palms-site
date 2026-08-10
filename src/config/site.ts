@@ -15,6 +15,7 @@ export const siteConfig = {
   // 既存FAX値を保持（変更なし）
   faxKeep: "072-320-2401",
   lineUrl: "{{LINE_URL}}",
+  instagramUrl: "https://www.instagram.com/palms_moveagain/",
   address: "〒590-0106 大阪府堺市南区豊田487-1",
   // 確定: 営業時間。時間外対応の断定はしない（hoursNote参照）
   hours: "9:00〜19:00・年中無休",

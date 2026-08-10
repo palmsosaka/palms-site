@@ -44,15 +44,27 @@
   --color-palms-magenta: #F24F9D;
   --color-palms-amber: #F5A24A;
   --color-palms-chrome: #A9AFB8;
-  --font-sans: Arial, Helvetica, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  --font-sans: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
   --font-mono: "IBM Plex Mono", "SFMono-Regular", Menlo, monospace;
 }
 
 body {
   background: var(--color-background);
   color: var(--color-foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  font-feature-settings: "palt";
+  text-rendering: optimizeLegibility;
 }
+
+::selection { background: var(--palms-sage); color: var(--palms-midnight); }
+
+:focus-visible {
+  outline: 2px solid var(--palms-aqua);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+h1, h2, h3, h4 { font-feature-settings: "palt"; }
 
 /* Fixed CTA spacing */
 .main-content {

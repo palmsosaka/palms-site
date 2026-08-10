@@ -6,19 +6,19 @@ import styles from "@/app/page.module.css";
 
 const SLIDES = [
   {
-    src: `${BASE_PATH}/assets/hero/hero-01-service.svg`,
-    alt: "明るい午前の清潔なガレージ前に停まる積載車のシルエット",
-    dotLabel: "1枚目(ガレージ)を表示",
-  },
-  {
     src: `${BASE_PATH}/assets/hero/hero-02-experience.svg`,
     alt: "マジックアワーの一本道と旧車のシルエット",
-    dotLabel: "2枚目(夕暮れの道)を表示",
+    dotLabel: "1枚目(夕暮れの道)を表示",
   },
   {
     src: `${BASE_PATH}/assets/hero/hero-03-story.svg`,
     alt: "夜、半開きのシャッターから暖かい光が漏れるガレージと旧車のシルエット",
-    dotLabel: "3枚目(夜のガレージ)を表示",
+    dotLabel: "2枚目(夜のガレージ)を表示",
+  },
+  {
+    src: `${BASE_PATH}/assets/hero/hero-01-service.svg`,
+    alt: "明るい午前の清潔なガレージ前に停まる積載車のシルエット",
+    dotLabel: "3枚目(ガレージ)を表示",
   },
 ];
 
