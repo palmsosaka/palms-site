@@ -14,7 +14,7 @@ export const siteConfig = {
   phoneFixedRaw: "0722206886",
   // 既存FAX値を保持（変更なし）
   faxKeep: "072-320-2401",
-  lineUrl: "{{LINE_URL}}",
+  lineUrl: "https://line.me/R/ti/p/@536hygtf",
   instagramUrl: "https://www.instagram.com/palms_moveagain/",
   address: "〒590-0106 大阪府堺市南区豊田487-1",
   // 確定: 営業時間。時間外対応の断定はしない（hoursNote参照）
