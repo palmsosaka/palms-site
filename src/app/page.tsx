@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { siteConfig, BASE_PATH } from "@/config/site";
 import { trackCall, trackLine } from "@/lib/analytics";
-import HeroRotator from "@/components/HeroRotator";
 import styles from "./page.module.css";
 
 const stroke = {
@@ -25,6 +24,58 @@ const ArrowIcon = ({ size = 16 }: { size?: number }) => (
     <path d="M13 6l6 6-6 6" />
   </svg>
 );
+
+/* ヒーローの「状況から選ぶ」4枠。行き先はすべて既存ページ。 */
+const TRIAGE = [
+  {
+    href: "/emergency/",
+    title: "事故にあった",
+    desc: "警察への連絡から、レッカーと代車の手配まで",
+    icon: (
+      <svg viewBox="0 0 24 24" style={stroke} aria-hidden="true">
+        <path d="M3 13l1.6-4.6A2 2 0 0 1 6.5 7h11a2 2 0 0 1 1.9 1.4L21 13" />
+        <path d="M3 13h18v4h-2v-1H5v1H3z" />
+        <circle cx="7.5" cy="17" r="1.5" />
+        <circle cx="16.5" cy="17" r="1.5" />
+      </svg>
+    ),
+  },
+  {
+    href: "/repair/",
+    title: "ぶつけた・こすった",
+    desc: "鈑金修理のご相談。見積りだけでも承ります",
+    icon: (
+      <svg viewBox="0 0 24 24" style={stroke} aria-hidden="true">
+        <path d="M4 18c3-2 5-6 8-9s5-3 7-2" />
+        <path d="M6.5 20.5l3-3" />
+        <path d="M12 15.5l3-3" />
+      </svg>
+    ),
+  },
+  {
+    href: "/tow/",
+    title: "動かない・警告灯",
+    desc: "走っていいかの判断と、レッカーの手配",
+    icon: (
+      <svg viewBox="0 0 24 24" style={stroke} aria-hidden="true">
+        <circle cx="12" cy="12" r="8.5" />
+        <path d="M12 7.5v5" />
+        <path d="M12 16v.4" />
+      </svg>
+    ),
+  },
+  {
+    href: "/inspection/",
+    title: "車検・整備の相談",
+    desc: "内容と費用を、着手前にご説明します",
+    icon: (
+      <svg viewBox="0 0 24 24" style={stroke} aria-hidden="true">
+        <rect x="4" y="4" width="16" height="16" rx="2" />
+        <path d="M8.5 12.2l2.4 2.4 4.6-4.8" />
+      </svg>
+    ),
+  },
+] as const;
 
 function SecHead({
   index,
@@ -51,34 +102,48 @@ function SecHead({
 export default function HomePage() {
   return (
     <>
-      {/* ===== 1. ヒーロー(3枚ローテーション) ===== */}
+      {/* ===== 1. ヒーロー(状況から選ぶ / 画像なし) ===== */}
       <section className={styles.hero} aria-label="ファーストビュー">
-        <HeroRotator />
-        <div className={styles.heroScrim} aria-hidden="true" />
+        <div className={styles.heroField} aria-hidden="true" />
         <div className={styles.heroOverlay}>
           <div className="mx-auto w-full max-w-[1120px] px-6">
-            <p className={styles.heroKicker}>SAKAI, OSAKA — AUTO SERVICE &amp; MOTOR CULTURE</p>
-            <h1 className={styles.heroEn}>
-              MOVE AGAIN<span className={styles.heroEnDot}>.</span>
-            </h1>
-            <p className={styles.heroJa}>
-              止まった車を動かす。
-              <br />
-              止まっていた憧れも動かす。
+            <p className={styles.heroKicker}>SAKAI, OSAKA — MOVE AGAIN.</p>
+            <h1 className={styles.heroTitle}>堺で、車が動かなくなったら。</h1>
+            <p className={styles.heroLead}>
+              当てはまるものを選んでください。そのままお電話でも大丈夫です。
             </p>
-            <div className={styles.heroCtaBlock}>
-              <div className={styles.heroCta}>
-                <Link href="/emergency/" className={`${styles.btn} ${styles.btnPrimary}`}>
-                  <PhoneIcon className={styles.btnIcon} />
-                  <span>車のトラブルを相談する</span>
+
+            <nav className={styles.triageGrid} aria-label="状況から選ぶ">
+              {TRIAGE.map((t) => (
+                <Link key={t.href} href={t.href} className={styles.triageCard}>
+                  <span className={styles.triageIcon} aria-hidden="true">
+                    {t.icon}
+                  </span>
+                  <span className={styles.triageTitle}>{t.title}</span>
+                  <span className={styles.triageDesc}>{t.desc}</span>
+                  <span className={styles.triageMore}>
+                    手順を見る
+                    <ArrowIcon size={14} />
+                  </span>
                 </Link>
-                <Link href="/experience/" className={`${styles.btn} ${styles.btnSecondary}`}>
-                  <span>PALMSの車と体験を見る</span>
-                  <svg className={styles.btnIcon} viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M9 6l6 6-6 6" />
-                  </svg>
-                </Link>
-              </div>
+              ))}
+            </nav>
+
+            <div className={styles.heroTelRow}>
+              <a
+                className={styles.heroTel}
+                href={`tel:${siteConfig.phoneRaw}`}
+                onClick={trackCall}
+                aria-label={`直通 ${siteConfig.phone} に電話する`}
+              >
+                <PhoneIcon className={styles.heroTelIcon} />
+                <span className={styles.heroTelLabel}>直通</span>
+                <span className={styles.heroTelNum}>{siteConfig.phone}</span>
+              </a>
+              <p className={styles.heroTelMeta}>
+                <b>{siteConfig.hours}</b>
+                <span>代表 {siteConfig.phoneFixed}</span>
+              </p>
             </div>
           </div>
         </div>
@@ -305,23 +370,24 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== 5. EXPERIENCE誘導帯 ===== */}
+      {/* ===== 5. EXPERIENCE誘導帯(文章だけ / 画像なし) ===== */}
       <section className={styles.experienceBand} aria-label="PALMS EXPERIENCEへ">
-        <div className={styles.expVisual} aria-hidden="true">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={`${BASE_PATH}/assets/hero/hero-02-experience.svg`} alt="" loading="lazy" />
-        </div>
-        <div className={styles.expScrim} aria-hidden="true" />
+        <div className={styles.expField} aria-hidden="true" />
         <div className={`mx-auto max-w-[1120px] px-6 ${styles.expContent}`}>
+          <span className={styles.expTick} aria-hidden="true" />
           <p className={styles.secLabel} style={{ color: "var(--electric-aqua)" }}>
             PALMS EXPERIENCE
           </p>
-          <h2 className={styles.expTitle}>あの頃、乗れなかった一台へ。</h2>
-          <Link className={`${styles.btn} ${styles.btnPrimary}`} href="/experience/">
-            <span>PALMSの車と体験を見る</span>
-            <svg className={styles.btnIcon} viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M9 6l6 6-6 6" />
-            </svg>
+          <p className={styles.expLetter}>
+            いつか乗れると思っていた車が、
+            <br />
+            誰にでも一台はあると思っています。
+            <br />
+            その一台を、もう一度動かせる場所を作ります。
+          </p>
+          <Link className={styles.expLink} href="/experience/">
+            <span>あの頃、乗れなかった一台へ。</span>
+            <ArrowIcon size={15} />
           </Link>
           <p className={styles.expNote}>※ EXPERIENCE事業には[構想]段階の内容を含みます。</p>
         </div>
