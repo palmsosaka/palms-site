@@ -1,5 +1,5 @@
 /** Must match next.config.ts basePath (empty string for custom domain) */
-export const BASE_PATH = "/palms-site";
+export const BASE_PATH = "";
 
 export const siteConfig = {
   companyName: "PALMS",
@@ -21,6 +21,6 @@ export const siteConfig = {
   hours: "9:00〜19:00・年中無休",
   hoursNote: "時間外はまずお電話・LINEでご相談ください。",
   mapUrl: "https://www.google.com/maps?q=大阪府堺市南区豊田487-1",
-  siteUrl: "https://example.com",
+  siteUrl: "https://palms-moveagain.com",
   themeColor: "#BFDDA8",
 } as const;
